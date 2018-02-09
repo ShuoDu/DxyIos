@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StoreCell">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="174"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="174"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canting" translatesAutoresizingMaskIntoConstraints="NO" id="EkZ-OJ-J8P">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="117"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="117" id="BGH-vd-MR6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   冬季男士卫衣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19g-Cg-wog">
+                        <rect key="frame" x="0.0" y="120" width="90.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="aGT-TU-vb6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¥88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLk-kB-cTH">
+                        <rect key="frame" x="7" y="144" width="32" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.83529411760000005" green="0.098039215690000001" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="33人付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSe-j7-gdC">
+                        <rect key="frame" x="44" y="144" width="73" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="EkZ-OJ-J8P" secondAttribute="trailing" id="Lgb-40-tP2"/>
+                <constraint firstItem="EkZ-OJ-J8P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UQk-4b-lvT"/>
+                <constraint firstItem="EkZ-OJ-J8P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UtU-cu-eaY"/>
+                <constraint firstItem="EkZ-OJ-J8P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bzB-Zr-xVG"/>
+                <constraint firstItem="19g-Cg-wog" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hLK-ld-DS4"/>
+                <constraint firstAttribute="trailing" secondItem="EkZ-OJ-J8P" secondAttribute="trailing" id="izj-mI-MV5"/>
+                <constraint firstItem="19g-Cg-wog" firstAttribute="top" secondItem="EkZ-OJ-J8P" secondAttribute="bottom" constant="3" id="jH2-hs-yrd"/>
+                <constraint firstItem="EkZ-OJ-J8P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oTW-rj-0Ms"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="145" height="174"/>
+            <point key="canvasLocation" x="-64.5" y="-5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="canting" width="440" height="430"/>
+    </resources>
+</document>

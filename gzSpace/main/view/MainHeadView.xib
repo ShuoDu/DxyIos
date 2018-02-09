@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MainHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="374"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scroll_top" translatesAutoresizingMaskIntoConstraints="NO" id="v3F-dn-xy9">
+                    <rect key="frame" x="0.0" y="0.0" width="405" height="165"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="165" id="gh1-6u-FJ1"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAY-1F-nRf">
+                    <rect key="frame" x="10" y="173" width="89" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="F7H-1u-0tl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="餐厅" image="waimai">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ixX-rw-URC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyH-y1-0bh">
+                    <rect key="frame" x="109" y="173" width="88" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="wuZ-yQ-wUH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="租房" image="zufang">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="JHD-pm-Iif"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFd-5L-KFn">
+                    <rect key="frame" x="306" y="173" width="88.5" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="8M5-Uh-MpB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="租车" image="zuche">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="W2k-on-Qas"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGp-SY-N96">
+                    <rect key="frame" x="10" y="269" width="89" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="Hcv-MB-7yb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="团购" image="tuangou">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="GRa-18-6Q5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRe-Wp-Fgn">
+                    <rect key="frame" x="109" y="269" width="88.5" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="G0Y-Sc-kTD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="拼车" image="pinche">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="RYI-t5-uqo"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPM-MW-Lyl">
+                    <rect key="frame" x="207.5" y="269" width="88.5" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="tjJ-9p-af8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="工作" image="gongzuo">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ENz-S0-ebO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-6E-6Fm">
+                    <rect key="frame" x="306" y="269" width="89" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="BRt-2t-aMh"/>
+                    </constraints>
+                    <state key="normal" title="其他" image="qita">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vMJ-TX-dqx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvG-X3-PoV">
+                    <rect key="frame" x="207" y="173" width="89" height="86"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="chm-Bk-iM9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="卖房" image="maifang">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="K0n-Rn-Y0p"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nyH-y1-0bh" firstAttribute="top" secondItem="v3F-dn-xy9" secondAttribute="bottom" constant="8" id="28r-o3-qCf"/>
+                <constraint firstItem="YGp-SY-N96" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="5Kb-s7-vwo"/>
+                <constraint firstItem="Tvh-6E-6Fm" firstAttribute="top" secondItem="yFd-5L-KFn" secondAttribute="bottom" constant="10" id="6qy-Fz-ZjV"/>
+                <constraint firstItem="SRe-Wp-Fgn" firstAttribute="width" secondItem="YGp-SY-N96" secondAttribute="width" id="8xh-nJ-xUV"/>
+                <constraint firstItem="yFd-5L-KFn" firstAttribute="leading" secondItem="IvG-X3-PoV" secondAttribute="trailing" constant="10" id="AVs-uj-fpG"/>
+                <constraint firstItem="IvG-X3-PoV" firstAttribute="leading" secondItem="nyH-y1-0bh" secondAttribute="trailing" constant="10" id="Cm0-ps-sWz"/>
+                <constraint firstItem="v3F-dn-xy9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ESo-PM-yX0"/>
+                <constraint firstItem="Tvh-6E-6Fm" firstAttribute="width" secondItem="YGp-SY-N96" secondAttribute="width" id="GMY-JZ-XNZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yFd-5L-KFn" secondAttribute="trailing" constant="10" id="Gv0-t3-yE1"/>
+                <constraint firstItem="nyH-y1-0bh" firstAttribute="width" secondItem="eAY-1F-nRf" secondAttribute="width" id="MGm-d2-WOa"/>
+                <constraint firstItem="v3F-dn-xy9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="QWp-1d-HGa"/>
+                <constraint firstItem="tPM-MW-Lyl" firstAttribute="top" secondItem="IvG-X3-PoV" secondAttribute="bottom" constant="10" id="SiB-dd-lf1"/>
+                <constraint firstItem="yFd-5L-KFn" firstAttribute="top" secondItem="v3F-dn-xy9" secondAttribute="bottom" constant="8" id="U50-7O-YlH"/>
+                <constraint firstItem="SRe-Wp-Fgn" firstAttribute="leading" secondItem="YGp-SY-N96" secondAttribute="trailing" constant="10" id="UVB-1M-kPY"/>
+                <constraint firstItem="eAY-1F-nRf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="VaO-eD-Daz"/>
+                <constraint firstItem="tPM-MW-Lyl" firstAttribute="width" secondItem="YGp-SY-N96" secondAttribute="width" id="WmF-wv-TR4"/>
+                <constraint firstItem="v3F-dn-xy9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cxR-iU-OVg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tvh-6E-6Fm" secondAttribute="trailing" constant="10" id="e1E-S4-nyJ"/>
+                <constraint firstItem="nyH-y1-0bh" firstAttribute="leading" secondItem="eAY-1F-nRf" secondAttribute="trailing" constant="10" id="fEx-hO-Ppa"/>
+                <constraint firstItem="tPM-MW-Lyl" firstAttribute="leading" secondItem="SRe-Wp-Fgn" secondAttribute="trailing" constant="10" id="fOY-J2-QQp"/>
+                <constraint firstItem="Tvh-6E-6Fm" firstAttribute="leading" secondItem="tPM-MW-Lyl" secondAttribute="trailing" constant="10" id="hCg-kQ-qMd"/>
+                <constraint firstItem="IvG-X3-PoV" firstAttribute="width" secondItem="eAY-1F-nRf" secondAttribute="width" id="ivK-cc-FcB"/>
+                <constraint firstItem="yFd-5L-KFn" firstAttribute="width" secondItem="eAY-1F-nRf" secondAttribute="width" id="kAZ-oE-xKt"/>
+                <constraint firstItem="YGp-SY-N96" firstAttribute="top" secondItem="eAY-1F-nRf" secondAttribute="bottom" constant="10" id="kBZ-au-GRQ"/>
+                <constraint firstItem="SRe-Wp-Fgn" firstAttribute="top" secondItem="nyH-y1-0bh" secondAttribute="bottom" constant="10" id="mCd-Mp-8yn"/>
+                <constraint firstItem="eAY-1F-nRf" firstAttribute="top" secondItem="v3F-dn-xy9" secondAttribute="bottom" constant="8" id="ofc-xm-UGj"/>
+                <constraint firstItem="IvG-X3-PoV" firstAttribute="top" secondItem="v3F-dn-xy9" secondAttribute="bottom" constant="8" id="zgq-QQ-L8D"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="eight" destination="Tvh-6E-6Fm" id="1tZ-30-62g"/>
+                <outlet property="five" destination="YGp-SY-N96" id="X1M-Ys-A7a"/>
+                <outlet property="four" destination="yFd-5L-KFn" id="f1s-y5-dhP"/>
+                <outlet property="one" destination="eAY-1F-nRf" id="TPJ-wq-YtV"/>
+                <outlet property="seven" destination="tPM-MW-Lyl" id="lFf-UV-ENh"/>
+                <outlet property="six" destination="SRe-Wp-Fgn" id="Dqq-rZ-KY0"/>
+                <outlet property="three" destination="IvG-X3-PoV" id="3iq-rx-mea"/>
+                <outlet property="two" destination="nyH-y1-0bh" id="bct-Xc-5PM"/>
+            </connections>
+            <point key="canvasLocation" x="-3784.5" y="-1445"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gongzuo" width="50" height="50"/>
+        <image name="maifang" width="50" height="50"/>
+        <image name="pinche" width="50" height="50"/>
+        <image name="qita" width="50" height="50"/>
+        <image name="scroll_top" width="554" height="324"/>
+        <image name="tuangou" width="50" height="50"/>
+        <image name="waimai" width="50" height="50"/>
+        <image name="zuche" width="50" height="50"/>
+        <image name="zufang" width="50" height="50"/>
+    </resources>
+</document>

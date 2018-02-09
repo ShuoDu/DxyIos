@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="KGk-i7-Jjw" customClass="MainTwoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="127.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_one" translatesAutoresizingMaskIntoConstraints="NO" id="kyN-iH-uQG">
+                        <rect key="frame" x="16" y="-4.5" width="86" height="137"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_two" translatesAutoresizingMaskIntoConstraints="NO" id="s0a-NB-rrb">
+                        <rect key="frame" x="117" y="-4.5" width="86" height="137"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_three" translatesAutoresizingMaskIntoConstraints="NO" id="E3J-D9-N78">
+                        <rect key="frame" x="218" y="2.5" width="86" height="123"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="E3J-D9-N78" firstAttribute="leading" secondItem="s0a-NB-rrb" secondAttribute="trailing" constant="15" id="6sj-2c-iVL"/>
+                    <constraint firstItem="E3J-D9-N78" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="HTw-QR-Vkh"/>
+                    <constraint firstItem="s0a-NB-rrb" firstAttribute="leading" secondItem="kyN-iH-uQG" secondAttribute="trailing" constant="15" id="MxO-dQ-4UV"/>
+                    <constraint firstItem="E3J-D9-N78" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="b2M-cM-jV8"/>
+                    <constraint firstItem="E3J-D9-N78" firstAttribute="width" secondItem="kyN-iH-uQG" secondAttribute="width" id="byw-Xs-nxb"/>
+                    <constraint firstItem="kyN-iH-uQG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="jG2-of-5GT"/>
+                    <constraint firstItem="s0a-NB-rrb" firstAttribute="width" secondItem="kyN-iH-uQG" secondAttribute="width" id="l7N-ax-CT0"/>
+                    <constraint firstItem="kyN-iH-uQG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="smR-uD-ER7"/>
+                    <constraint firstItem="s0a-NB-rrb" firstAttribute="height" secondItem="kyN-iH-uQG" secondAttribute="height" id="z0s-48-ldR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="E3J-D9-N78" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="A4w-KG-fpr"/>
+                <constraint firstItem="s0a-NB-rrb" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="QRL-0o-7gg"/>
+                <constraint firstItem="kyN-iH-uQG" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="VYZ-GE-vWh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="-111" y="28"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="main_one" width="111" height="118"/>
+        <image name="main_three" width="102" height="123"/>
+        <image name="main_two" width="117" height="137"/>
+    </resources>
+</document>
