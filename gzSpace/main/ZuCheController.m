@@ -24,7 +24,6 @@
 }
 
 
-
 - (NBLScrollTabController *)scrollTabController {
     if (!_scrollTabController) {
         //                NBLScrollTabTheme *theme = [[NBLScrollTabTheme alloc] init];

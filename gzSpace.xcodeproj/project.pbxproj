@@ -96,6 +96,7 @@
 		EF37C785201704FE007A6E9A /* OrderOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF37C783201704FE007A6E9A /* OrderOneCell.xib */; };
 		EF3D68F3202AF36D00225C86 /* TentingHouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D68F2202AF36D00225C86 /* TentingHouseController.m */; };
 		EF3D68F6202B00A300225C86 /* SellHouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D68F5202B00A300225C86 /* SellHouseController.m */; };
+		EF3F75582044F9B300151145 /* MainMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3F75572044F9B300151145 /* MainMessageModel.m */; };
 		EF4891DB1FDF757A005982B2 /* SpaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4891D91FDF757A005982B2 /* SpaceController.m */; };
 		EF4891E41FDF812C005982B2 /* StoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4891E21FDF812C005982B2 /* StoreController.m */; };
 		EF4892151FDFB659005982B2 /* MainOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4892131FDFB659005982B2 /* MainOneCell.m */; };
@@ -312,6 +313,8 @@
 		EF3D68F2202AF36D00225C86 /* TentingHouseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TentingHouseController.m; sourceTree = "<group>"; };
 		EF3D68F4202B00A300225C86 /* SellHouseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SellHouseController.h; sourceTree = "<group>"; };
 		EF3D68F5202B00A300225C86 /* SellHouseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SellHouseController.m; sourceTree = "<group>"; };
+		EF3F75562044F9B300151145 /* MainMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMessageModel.h; sourceTree = "<group>"; };
+		EF3F75572044F9B300151145 /* MainMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMessageModel.m; sourceTree = "<group>"; };
 		EF4891D81FDF757A005982B2 /* SpaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceController.h; sourceTree = "<group>"; };
 		EF4891D91FDF757A005982B2 /* SpaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceController.m; sourceTree = "<group>"; };
 		EF4891E11FDF812C005982B2 /* StoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreController.h; sourceTree = "<group>"; };
@@ -602,6 +605,7 @@
 		EF0D21931FDE6B6600B9D776 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				EF3F75552044F83200151145 /* model */,
 				EF0D21A51FDE774800B9D776 /* MainController.h */,
 				EF0D21A61FDE774800B9D776 /* MainController.m */,
 				EF0D21A81FDE774B00B9D776 /* view */,
@@ -752,6 +756,15 @@
 				EF37C783201704FE007A6E9A /* OrderOneCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		EF3F75552044F83200151145 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EF3F75562044F9B300151145 /* MainMessageModel.h */,
+				EF3F75572044F9B300151145 /* MainMessageModel.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		EF4891DD1FDF80FA005982B2 /* store */ = {
@@ -1061,6 +1074,7 @@
 				EF07A679200F324300A6604D /* UIFont+YYAdd.m in Sources */,
 				EF07A671200F324300A6604D /* UITableView+YYAdd.m in Sources */,
 				EF5F40F7201833D5006ABB3D /* GzManageCell.m in Sources */,
+				EF3F75582044F9B300151145 /* MainMessageModel.m in Sources */,
 				EF07A66F200F324300A6604D /* UIDevice+YYAdd.m in Sources */,
 				EF0D21B51FDE924500B9D776 /* MeController.m in Sources */,
 				EF1252B92015D41C00670A45 /* GoodsManageController.m in Sources */,

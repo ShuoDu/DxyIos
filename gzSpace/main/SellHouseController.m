@@ -9,7 +9,7 @@
 #import "SellHouseController.h"
 #import "NBLScrollTabController.h"
 #import "SpaceOneController.h"
-
+#import "MainMessageModel.h"
 
 @interface SellHouseController ()<NBLScrollTabControllerDelegate>
 @property (nonatomic, strong) NBLScrollTabController *scrollTabController;
@@ -22,6 +22,18 @@
     [super viewDidLoad];
     self.navigationItem.title = @"卖房";
     [self.view addSubview:self.scrollTabController.view];
+}
+
+- (void)loadData {
+    NSDictionary *parm = @{@"type":@"5"};
+    NSString *url = @"http://127.0.0.1:8080/main/type_mesage/";
+    [CYXHttpRequest get:url params:parm success:^(id responseObj) {
+        NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
+        for (NSDictionary *dict in dataArray) {
+            MainMessageModel *messageModel = [MainMessageModel yy_modelWithDictionary:dict];
+        }
+    } failure:^(NSError *error) {
+    }];
 }
 
 - (NBLScrollTabController *)scrollTabController {
@@ -41,7 +53,6 @@
         _scrollTabController.delegate = self;
         _scrollTabController.viewControllers = self.viewControllers;
     }
-    
     return _scrollTabController;
 }
 

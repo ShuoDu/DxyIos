@@ -7,18 +7,21 @@
 //
 
 #import "MessageTwoCell.h"
+#import "MainMessageModel.h"
+@interface MessageTwoCell()
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
+@end
 @implementation MessageTwoCell
-
+-(void)loadData:(MainMessageModel *)data{
+    self.title.text = data.title;
+    self.time.text = data.time;
+    [self.image sd_setImageWithURL:[NSURL URLWithString:data.message_img]];
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

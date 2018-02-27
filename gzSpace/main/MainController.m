@@ -20,6 +20,7 @@
 #import "PinCheController.h"
 #import "MessageOneCell.h"
 #import "MessageTwoCell.h"
+#import "MainMessageModel.h"
 static NSString *oneCellID = @"MainOneCell";
 static NSString *twoCellID = @"MessageTwoCell";
 static NSString *oneMessage = @"MessageOneCell";
@@ -27,8 +28,9 @@ static NSString *oneMessage = @"MessageOneCell";
 {
     UITableView *myTableView;
 }
-@property(nonatomic,strong)MainHeadView *headView;
-@property(nonatomic,strong)NSMutableArray *btnArray;
+@property (nonatomic, strong)MainHeadView *headView;
+@property (nonatomic, strong)NSMutableArray *btnArray;
+@property (nonatomic, strong)NSMutableArray *dataArray;
 @end
 
 @implementation MainController
@@ -94,12 +96,27 @@ static NSString *oneMessage = @"MessageOneCell";
     self.headView.frame = CGRectMake(0, 0, WIDTH, 365);
     myTableView.tableHeaderView = self.headView;
     [self.view addSubview:myTableView];
+    [self loadData];
 }
 
+- (void)loadData {
+    NSDictionary *parm = @{@"type":@"5"};
+    NSString *url = @"http://127.0.0.1:8080/main/type_mesage/";
+    [CYXHttpRequest get:url params:parm success:^(id responseObj) {
+        NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
+        for (NSDictionary *dict in dataArray) {
+            MainMessageModel *messageModel = [MainMessageModel yy_modelWithDictionary:dict];
+            [self.dataArray addObject:messageModel];
+        }
+        [myTableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark - UITableViewDelaget
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -141,7 +158,6 @@ static NSString *oneMessage = @"MessageOneCell";
         [myScroll addSubview:btn];
         [self.btnArray addObject:btn];
     }
-  
     return headerView;
 }
 
@@ -176,19 +192,30 @@ static NSString *oneMessage = @"MessageOneCell";
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    MainMessageModel *model = self.dataArray[indexPath.row];
     UITableViewCell  * cell = [tableView dequeueReusableCellWithIdentifier:oneCellID];
     if (indexPath.row/2 == 0) {
         MessageTwoCell *cellOne = [tableView dequeueReusableCellWithIdentifier:twoCellID];
+        [cellOne loadData:model];
         cell = cellOne;
     } else {
         MessageOneCell *mesOne = [tableView dequeueReusableCellWithIdentifier:oneMessage];
+        [mesOne loadData:model];
         cell = mesOne;
     }
-      cell.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+     cell.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
      cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 
 }
+
+
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 
 @end

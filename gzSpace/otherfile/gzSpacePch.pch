@@ -33,6 +33,8 @@
 #import <SVProgressHUD.h>
 #import "CYXHttpRequest.h"
 #import "UIView+YYAdd.h"
+#import "YYModel.h"
+#import <UIImageView+WebCache.h>
 //#import "UIColor+YYAdd.h"
 
 #endif /* gzSpacePch_pch */

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MainMessageModel;
 @interface MessageOneCell : UITableViewCell
-
+-(void)loadData:(MainMessageModel *)data;
 @end
