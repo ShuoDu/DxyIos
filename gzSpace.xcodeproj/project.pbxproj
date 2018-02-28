@@ -117,6 +117,7 @@
 		EF5F410E201856F5006ABB3D /* SpaceOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F410D201856F5006ABB3D /* SpaceOneController.m */; };
 		EF8DF0DA201309B100ABA151 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8DF0D8201309B100ABA151 /* StoreCell.m */; };
 		EF8DF0DB201309B100ABA151 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8DF0D9201309B100ABA151 /* StoreCell.xib */; };
+		EFC6122220467FB20034AD48 /* SpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC6122120467FB20034AD48 /* SpaceModel.m */; };
 		EFE3AAA62012F10100DE6211 /* ToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3AAA42012F10100DE6211 /* ToolController.m */; };
 		EFE3AAA72012F10100DE6211 /* ToolController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE3AAA52012F10100DE6211 /* ToolController.xib */; };
 /* End PBXBuildFile section */
@@ -350,6 +351,8 @@
 		EF8DF0D7201309B100ABA151 /* StoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		EF8DF0D8201309B100ABA151 /* StoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
 		EF8DF0D9201309B100ABA151 /* StoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
+		EFC6122020467FB20034AD48 /* SpaceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceModel.h; sourceTree = "<group>"; };
+		EFC6122120467FB20034AD48 /* SpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceModel.m; sourceTree = "<group>"; };
 		EFE3AAA32012F10100DE6211 /* ToolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolController.h; sourceTree = "<group>"; };
 		EFE3AAA42012F10100DE6211 /* ToolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolController.m; sourceTree = "<group>"; };
 		EFE3AAA52012F10100DE6211 /* ToolController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolController.xib; sourceTree = "<group>"; };
@@ -667,6 +670,7 @@
 		EF0D21971FDE6C0C00B9D776 /* space */ = {
 			isa = PBXGroup;
 			children = (
+				EFC6121F20467F990034AD48 /* model */,
 				EF4891D81FDF757A005982B2 /* SpaceController.h */,
 				EF4891D91FDF757A005982B2 /* SpaceController.m */,
 				EF48921C1FDFD9E0005982B2 /* SpaceDetailController.h */,
@@ -815,6 +819,15 @@
 				EF8DF0D9201309B100ABA151 /* StoreCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		EFC6121F20467F990034AD48 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EFC6122020467FB20034AD48 /* SpaceModel.h */,
+				EFC6122120467FB20034AD48 /* SpaceModel.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		EFE3AAA22012F0E400DE6211 /* tool */ = {
@@ -1091,6 +1104,7 @@
 				EF07A685200F324300A6604D /* NSNotificationCenter+YYAdd.m in Sources */,
 				EF0D21AD1FDE7BEB00B9D776 /* BaseController.m in Sources */,
 				EF07A697200F337500A6604D /* UIButton+JKImagePosition.m in Sources */,
+				EFC6122220467FB20034AD48 /* SpaceModel.m in Sources */,
 				EF8DF0DA201309B100ABA151 /* StoreCell.m in Sources */,
 				EF07A676200F324300A6604D /* UIGestureRecognizer+YYAdd.m in Sources */,
 				EF0D21A41FDE766100B9D776 /* GzTabBarViewController.m in Sources */,

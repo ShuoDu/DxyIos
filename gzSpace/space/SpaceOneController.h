@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SpaceOneController : UIViewController
-
+@property(nonatomic,strong)NSString *type;
 @end

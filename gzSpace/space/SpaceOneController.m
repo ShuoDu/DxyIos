@@ -9,12 +9,13 @@
 #import "SpaceOneController.h"
 #import "MainOneCell.h"
 #import "SpaceDetailController.h"
+#import "SpaceModel.h"
 static NSString *oneCellID = @"MainOneCell";
 @interface SpaceOneController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *myTableView;
 }
-
+@property (nonatomic,strong)NSMutableArray *dataArray;
 @end
 
 @implementation SpaceOneController
@@ -22,19 +23,23 @@ static NSString *oneCellID = @"MainOneCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addConfigView];
-    [self loadData];
+    NSLog(@"类型：%@",self.type);
+    [self loadData:self.type];
 }
 
-- (void)loadData {
-    NSString *url = @"http://127.0.0.1:8080/store/list/";
-    [CYXHttpRequest get:url params:nil success:^(id responseObj) {
+- (void)loadData:(NSString *)type {
+    NSDictionary *parm = @{@"type":type};
+    NSString *url = @"http://127.0.0.1:8080/main/service_message/";
+    [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
+        [self.dataArray removeAllObjects];
+        self.dataArray=[NSMutableArray array];
         for (NSDictionary *dict in dataArray) {
-            NSString *imgRootUrl = @"http://127.0.0.1:8080";
-            NSString *imgUrl = [imgRootUrl stringByAppendingString:dict[@"store_img"]];
-            NSLog(@"%@",imgUrl);
+            SpaceModel *spaceModel = [SpaceModel yy_modelWithDictionary:dict];
+            [self.dataArray addObject:spaceModel];
         }
-        DLog(@"%@",dataArray);
+        [myTableView reloadData];
+        NSLog(@"服务信息%@",dataArray);
     } failure:^(NSError *error) {
         
     }];
@@ -63,11 +68,11 @@ static NSString *oneCellID = @"MainOneCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.dataArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,9 +89,10 @@ static NSString *oneCellID = @"MainOneCell";
     [self.navigationController pushViewController:spaceDetail animated:YES];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainOneCell *cellOne = [tableView dequeueReusableCellWithIdentifier:oneCellID];
+    SpaceModel *model = self.dataArray[indexPath.row];
+    [cellOne loadData:model];
     cellOne.backgroundColor = NewViewBack;
     return cellOne;
 }

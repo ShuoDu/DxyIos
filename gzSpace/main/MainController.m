@@ -96,14 +96,16 @@ static NSString *oneMessage = @"MessageOneCell";
     self.headView.frame = CGRectMake(0, 0, WIDTH, 365);
     myTableView.tableHeaderView = self.headView;
     [self.view addSubview:myTableView];
-    [self loadData];
+    [self loadData:@"头条"];
 }
 
-- (void)loadData {
-    NSDictionary *parm = @{@"type":@"5"};
+- (void)loadData:(NSString *)type {
+    NSDictionary *parm = @{@"type":type};
     NSString *url = @"http://127.0.0.1:8080/main/type_mesage/";
     [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
+        [self.dataArray removeAllObjects];
+        self.dataArray=[NSMutableArray array];
         for (NSDictionary *dict in dataArray) {
             MainMessageModel *messageModel = [MainMessageModel yy_modelWithDictionary:dict];
             [self.dataArray addObject:messageModel];
@@ -165,8 +167,10 @@ static NSString *oneMessage = @"MessageOneCell";
     for (int i=0; i<self.btnArray.count; i++) {
         UIButton *btf = self.btnArray[i];
         if (btf.tag == btn.tag) {
+             [self loadData:btn.titleLabel.text];
              btn.font = [UIFont systemFontOfSize:17];
             [btn setTitleColor:MainNavColor forState:UIControlStateNormal];
+      
         }else {
             UIButton *btt = (UIButton *)[self.view  viewWithTag:btf.tag];
              btt.font = [UIFont systemFontOfSize:15];
@@ -207,14 +211,6 @@ static NSString *oneMessage = @"MessageOneCell";
      cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 
-}
-
-
-- (NSMutableArray *)dataArray {
-    if (!_dataArray) {
-        _dataArray = [NSMutableArray array];
-    }
-    return _dataArray;
 }
 
 

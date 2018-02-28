@@ -7,10 +7,13 @@
 //
 
 #import "MainOneCell.h"
-
+#import "SpaceModel.h"
 @interface MainOneCell()
 @property (weak, nonatomic) IBOutlet UIView *backView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *adress;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 @end
 @implementation MainOneCell
 
@@ -23,8 +26,11 @@
     self.backView.layer.shadowOpacity = 0.8;//阴影透明度，默认0
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+-(void)loadData:(SpaceModel *)data{
+    self.title.text = data.title;
+    self.adress.text = data.content;
+    self.time.text = data.address;
+//    [self.img sd_setImageWithURL:[NSURL URLWithString:data.message_img]];
 }
 
 @end

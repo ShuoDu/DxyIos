@@ -15,7 +15,7 @@
 
 @interface NBLScrollTabController: UIViewController
 
-@property (nullable, nonatomic, copy) NSArray<__kindof UIViewController<NBLScrollTabSubController> *> *viewControllers;
+@property (nullable, nonatomic, copy) NSMutableArray<__kindof UIViewController<NBLScrollTabSubController> *> *viewControllers;
 @property (nullable, nonatomic, weak) id<NBLScrollTabControllerDelegate> delegate;
 
 - (nonnull instancetype)initWithTabTheme:(nonnull NBLScrollTabTheme *)tabTheme;

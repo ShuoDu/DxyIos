@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SpaceModel;
 @interface MainOneCell : UITableViewCell
-
+-(void)loadData:(SpaceModel *)data;
 @end
