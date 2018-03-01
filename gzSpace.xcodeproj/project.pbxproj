@@ -115,6 +115,9 @@
 		EF5F41082018386A006ABB3D /* NBLScrollTabTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F41032018386A006ABB3D /* NBLScrollTabTheme.m */; };
 		EF5F410B20183B0C006ABB3D /* OrderOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F410A20183B0C006ABB3D /* OrderOneController.m */; };
 		EF5F410E201856F5006ABB3D /* SpaceOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F410D201856F5006ABB3D /* SpaceOneController.m */; };
+		EF6B92662047E07B0011720E /* ChannelTags.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6B92632047E07B0011720E /* ChannelTags.m */; };
+		EF6B92672047E07B0011720E /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6B92652047E07B0011720E /* ChannelCell.m */; };
+		EF6B926A2047E1F30011720E /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6B92692047E1F30011720E /* Channel.m */; };
 		EF8DF0DA201309B100ABA151 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8DF0D8201309B100ABA151 /* StoreCell.m */; };
 		EF8DF0DB201309B100ABA151 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8DF0D9201309B100ABA151 /* StoreCell.xib */; };
 		EFC6122220467FB20034AD48 /* SpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC6122120467FB20034AD48 /* SpaceModel.m */; };
@@ -348,6 +351,12 @@
 		EF5F410A20183B0C006ABB3D /* OrderOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderOneController.m; sourceTree = "<group>"; };
 		EF5F410C201856F5006ABB3D /* SpaceOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceOneController.h; sourceTree = "<group>"; };
 		EF5F410D201856F5006ABB3D /* SpaceOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceOneController.m; sourceTree = "<group>"; };
+		EF6B92622047E07B0011720E /* ChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
+		EF6B92632047E07B0011720E /* ChannelTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTags.m; sourceTree = "<group>"; };
+		EF6B92642047E07B0011720E /* ChannelTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTags.h; sourceTree = "<group>"; };
+		EF6B92652047E07B0011720E /* ChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		EF6B92682047E1F30011720E /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		EF6B92692047E1F30011720E /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		EF8DF0D7201309B100ABA151 /* StoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		EF8DF0D8201309B100ABA151 /* StoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
 		EF8DF0D9201309B100ABA151 /* StoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
@@ -608,6 +617,7 @@
 		EF0D21931FDE6B6600B9D776 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				EF6B92612047E06A0011720E /* changeTag */,
 				EF3F75552044F83200151145 /* model */,
 				EF0D21A51FDE774800B9D776 /* MainController.h */,
 				EF0D21A61FDE774800B9D776 /* MainController.m */,
@@ -809,6 +819,19 @@
 				EF5F41032018386A006ABB3D /* NBLScrollTabTheme.m */,
 			);
 			path = NBLScrollTab;
+			sourceTree = "<group>";
+		};
+		EF6B92612047E06A0011720E /* changeTag */ = {
+			isa = PBXGroup;
+			children = (
+				EF6B92682047E1F30011720E /* Channel.h */,
+				EF6B92692047E1F30011720E /* Channel.m */,
+				EF6B92622047E07B0011720E /* ChannelCell.h */,
+				EF6B92652047E07B0011720E /* ChannelCell.m */,
+				EF6B92642047E07B0011720E /* ChannelTags.h */,
+				EF6B92632047E07B0011720E /* ChannelTags.m */,
+			);
+			path = changeTag;
 			sourceTree = "<group>";
 		};
 		EF8DF0D62013098700ABA151 /* view */ = {
@@ -1062,6 +1085,7 @@
 				EF07A689200F324300A6604D /* CALayer+YYAdd.m in Sources */,
 				EF07A67E200F324300A6604D /* NSData+YYAdd.m in Sources */,
 				EF31ABEE202C36870073B7BA /* CycleImageView.m in Sources */,
+				EF6B92662047E07B0011720E /* ChannelTags.m in Sources */,
 				EF1252BF2015D4AD00670A45 /* KuaiDiController.m in Sources */,
 				EF07A6A8200F3A1400A6604D /* CYXHttpRequest.m in Sources */,
 				EF4891E41FDF812C005982B2 /* StoreController.m in Sources */,
@@ -1069,6 +1093,7 @@
 				EF07A66E200F324300A6604D /* UIColor+YYAdd.m in Sources */,
 				EF31ABF8202C413D0073B7BA /* MessageController.m in Sources */,
 				EF1252C22015D5B000670A45 /* OrderController.m in Sources */,
+				EF6B926A2047E1F30011720E /* Channel.m in Sources */,
 				EF07A687200F324300A6604D /* NSObject+YYAddForKVO.m in Sources */,
 				EF5F41062018386A006ABB3D /* NBLScrollTabItemView.m in Sources */,
 				EF07A684200F324300A6604D /* NSString+YYAdd.m in Sources */,
@@ -1116,6 +1141,7 @@
 				EF07A688200F324300A6604D /* YYCGUtilities.m in Sources */,
 				EF07A695200F337500A6604D /* UILabel+YDBCommon.m in Sources */,
 				EF5F410E201856F5006ABB3D /* SpaceOneController.m in Sources */,
+				EF6B92672047E07B0011720E /* ChannelCell.m in Sources */,
 				EF07A670200F324300A6604D /* UIApplication+YYAdd.m in Sources */,
 				EF31ABE4202C2ACC0073B7BA /* OtherToolCell.m in Sources */,
 				EF4892151FDFB659005982B2 /* MainOneCell.m in Sources */,
@@ -1294,7 +1320,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = gzSpace/otherfile/gzSpacePch.pch;
 				INFOPLIST_FILE = gzSpace/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "------------.gzSpace";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1313,7 +1339,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = gzSpace/otherfile/gzSpacePch.pch;
 				INFOPLIST_FILE = gzSpace/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "------------.gzSpace";
 				PRODUCT_NAME = "$(TARGET_NAME)";

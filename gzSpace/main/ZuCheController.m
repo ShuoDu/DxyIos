@@ -41,6 +41,7 @@
         
     }];
 }
+
 - (NBLScrollTabController *)scrollTabController {
     if (!_scrollTabController) {
         _scrollTabController = [[NBLScrollTabController alloc] init];
@@ -52,7 +53,6 @@
     
     return _scrollTabController;
 }
-
 
 - (NSArray *)viewControllers {
     if (!_viewControllers) {

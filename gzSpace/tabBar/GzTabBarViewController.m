@@ -115,7 +115,7 @@
 
 - (void)addTool {
     ToolController *tool = [[ToolController alloc]init];
-    [self presentViewController:tool animated:YES completion:nil];
+    [self presentViewController:tool animated:NO completion:nil];
 
 }
 

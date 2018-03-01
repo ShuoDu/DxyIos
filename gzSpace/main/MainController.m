@@ -21,12 +21,15 @@
 #import "MessageOneCell.h"
 #import "MessageTwoCell.h"
 #import "MainMessageModel.h"
+#import "ChannelTags.h"
+#import "Channel.h"
 static NSString *oneCellID = @"MainOneCell";
 static NSString *twoCellID = @"MessageTwoCell";
 static NSString *oneMessage = @"MessageOneCell";
-@interface MainController ()<UITableViewDelegate,UITableViewDataSource>
-{
+@interface MainController ()<UITableViewDelegate,UITableViewDataSource> {
     UITableView *myTableView;
+    __block NSMutableArray *_myTags;
+    __block NSMutableArray *_recommandTags;
 }
 @property (nonatomic, strong)MainHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *btnArray;
@@ -37,17 +40,55 @@ static NSString *oneMessage = @"MessageOneCell";
 
 - (void)loadView {
     [super loadView];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"大新野";
     self.tabBarItem.title = @"首页";
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"服务标签" style:UIBarButtonItemStyleDone target:self action:@selector(addTagView)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    [self addTableView];
+    [self addTagView];
+    
+}
 
+- (void) addTagView {
+    _myTags = @[@"租房",@"卖房",@"餐饮",@"拼购",@"拼车",@"租车",@"活动",@"汽修",@"家政",@"辅导班",@"工作",@"二手",@"彩票",@"诊所",@"宠物医院",@"兴趣班",@"停车位",@"特卖",@"美食"].mutableCopy;
+    _recommandTags = @[@"育婴",@"农机",@"化肥",@"手机通讯",@"旅行社",@"代卖",@"代购",@"跑腿",@"快递",@"超市",@"宠物",@"装修",@"五金百货",@"开锁",@"维修"].mutableCopy;
+    //秀出来选择框
+    ChannelTags *controller = [[ChannelTags alloc]initWithMyTags:_myTags andRecommandTags:_recommandTags];
+    [self presentViewController:controller animated:YES completion:^{}];
+    
+    //所有的已选的tags
+    __block  NSMutableString *_str = @"已选：\n".mutableCopy;
+    controller.choosedTags = ^(NSArray *chooseTags, NSArray *recommandTags) {
+        _myTags = @[].mutableCopy;
+        _recommandTags = @[].mutableCopy;
+        for (Channel *mod in recommandTags) {
+            [_recommandTags addObject:mod.title];
+        }
+        for (Channel *mod in chooseTags) {
+            [_myTags addObject:mod.title];
+            [_str appendString:mod.title];
+            [_str appendString:@"、"];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:_str forKey:@"selectTag"];
+    };
+    
+    //单选tag
+    controller.selectedTag = ^(Channel *channel) {
+        [_str appendString:channel.title];
+        [[NSUserDefaults standardUserDefaults] setObject:_str forKey:@"selectTag"];
+    };
+}
+
+- (void) addTableView {
     myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-114) style:UITableViewStylePlain];
     myTableView.delegate = self;
     myTableView.dataSource = self;
-//    myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //    myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     myTableView.backgroundColor = NewViewBack;
     [myTableView registerNib:[UINib nibWithNibName:@"MessageOneCell" bundle:nil] forCellReuseIdentifier:oneMessage];
     [myTableView registerNib:[UINib nibWithNibName:@"MessageTwoCell" bundle:nil] forCellReuseIdentifier:twoCellID];
@@ -56,7 +97,7 @@ static NSString *oneMessage = @"MessageOneCell";
     //2 去掉iOS7的separatorInset边距
     myTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     myTableView.separatorColor = [UIColor colorWithHexString:@"DCDCDC"];
-
+    
     self.headView = [MainHeadView ins:^(NSInteger tag) {
         if (tag == 401) {
             SpaceController *space = [[SpaceController alloc]init];
@@ -76,12 +117,12 @@ static NSString *oneMessage = @"MessageOneCell";
             [self.navigationController pushViewController:tening animated:YES];
         }else if (tag == 405){
             PinCheController *pinChe = [[PinCheController alloc]init];
-             [pinChe setHidesBottomBarWhenPushed:YES];
+            [pinChe setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:pinChe animated:YES];
         }
         else if (tag == 406){
             WorkController *work = [[WorkController alloc]init];
-             [work setHidesBottomBarWhenPushed:YES];
+            [work setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:work animated:YES];
         }
         else if (tag == 407){
@@ -89,7 +130,7 @@ static NSString *oneMessage = @"MessageOneCell";
         }
         else if (tag == 408){
             QiTaController *other = [[QiTaController alloc]init];
-             [other setHidesBottomBarWhenPushed:YES];
+            [other setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:other animated:YES];
         }
     }];
@@ -194,8 +235,7 @@ static NSString *oneMessage = @"MessageOneCell";
     return view;
 }
 
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainMessageModel *model = self.dataArray[indexPath.row];
     UITableViewCell  * cell = [tableView dequeueReusableCellWithIdentifier:oneCellID];
     if (indexPath.row/2 == 0) {
@@ -212,6 +252,5 @@ static NSString *oneMessage = @"MessageOneCell";
     return cell;
 
 }
-
 
 @end
