@@ -142,7 +142,7 @@ static NSString *oneMessage = @"MessageOneCell";
 
 - (void)loadData:(NSString *)type {
     NSDictionary *parm = @{@"type":type};
-    NSString *url = @"http://127.0.0.1:8080/main/type_mesage/";
+    NSString *url = @"http://192.168.200.93:8080/main/type_mesage/";
     [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
         [self.dataArray removeAllObjects];
@@ -153,7 +153,6 @@ static NSString *oneMessage = @"MessageOneCell";
         }
         [myTableView reloadData];
     } failure:^(NSError *error) {
-        
     }];
 }
 

@@ -29,7 +29,7 @@ static NSString *oneCellID = @"MainOneCell";
 
 - (void)loadData:(NSString *)type {
     NSDictionary *parm = @{@"type":type};
-    NSString *url = @"http://127.0.0.1:8080/main/service_message/";
+    NSString *url = @"http://192.168.200.93:8080/main/service_message/";
     [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
         [self.dataArray removeAllObjects];

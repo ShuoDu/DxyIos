@@ -280,7 +280,7 @@
     return NO;
 }
 
--(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     Channel *object= _myTags[sourceIndexPath.item];
     [_myTags removeObjectAtIndex:sourceIndexPath.item];
     if (destinationIndexPath.section == 0) {
@@ -296,7 +296,7 @@
     [self refreshDelBtnsTag];
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
         NSInteger item = 0;
