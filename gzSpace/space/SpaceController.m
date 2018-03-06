@@ -19,13 +19,13 @@
 @implementation SpaceController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"餐厅";
-    [self loadData:@"餐饮"];
+    self.navigationItem.title = @"租房";
+    [self loadData:@"租房"];
 }
 
 - (void)loadData:(NSString *)type {
     NSDictionary *parm = @{@"type":type};
-    NSString *url = @"http://192.168.200.93:8080/main/service_detail_type/";
+    NSString *url = [NSString stringWithFormat:@"%@%@",Host,@"main/service_detail_type/"];
     [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
         self.datasArray = [NSMutableArray array];

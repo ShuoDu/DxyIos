@@ -31,13 +31,12 @@ static NSString *twoCellID = @"MainTwoCell";
     [ self.myTable registerNib:[UINib nibWithNibName:@"MainOneCell" bundle:nil] forCellReuseIdentifier:oneCellID];
     [ self.myTable registerNib:[UINib nibWithNibName:@"MainTwoCell" bundle:nil] forCellReuseIdentifier:twoCellID];
     PinCheHeadView *head = [PinCheHeadView ins:^(NSInteger tag) {
-        
     }];
     [self.myTable setTableHeaderView:head];
     [self.view addSubview:self.myTable];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 5;
 }
 

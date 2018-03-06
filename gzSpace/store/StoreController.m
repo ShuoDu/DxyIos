@@ -60,10 +60,8 @@ static NSString * headIdentifier = @"cxHeadID";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     //根据identifier从缓冲池里去出cell
     StoreCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"storeCell" forIndexPath:indexPath];
-    
     cell.backgroundColor = [UIColor whiteColor];
     
     return cell;

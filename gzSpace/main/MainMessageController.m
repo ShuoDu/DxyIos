@@ -1,33 +1,31 @@
 //
-//  WorkController.m
+//  MainMessageController.m
 //  gzSpace
 //
-//  Created by 智享单车 on 2018/2/8.
+//  Created by 智享单车 on 2018/3/5.
 //  Copyright © 2018年 智享单车. All rights reserved.
 //
 
-#import "WorkController.h"
+#import "MainMessageController.h"
 #import "NBLScrollTabController.h"
 #import "SpaceOneController.h"
-#import "MainMessageModel.h"
-@interface WorkController ()<NBLScrollTabControllerDelegate>
+@interface MainMessageController ()<NBLScrollTabControllerDelegate>
 @property (nonatomic, strong) NBLScrollTabController *scrollTabController;
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 @property (nonatomic, strong) NSMutableArray *datasArray;
 
 @end
 
-@implementation WorkController
+@implementation MainMessageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"工作";
-    [self loadData:@"工作"];
+    self.navigationItem.title = @"同城消息";
 }
 
 - (void)loadData:(NSString *)type {
     NSDictionary *parm = @{@"type":type};
-    NSString *url = [NSString stringWithFormat:@"%@%@",Host,@"main/service_detail_type/"];
+    NSString *url = @"http://192.168.201.162:8080/main/service_detail_type/";
     [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
         self.datasArray = [NSMutableArray array];
@@ -38,6 +36,7 @@
         if (self.datasArray.count>0) {
             [self.view addSubview:self.scrollTabController.view];
         }
+        
     } failure:^(NSError *error) {
     }];
 }
@@ -73,8 +72,10 @@
     return _viewControllers;
 }
 
+
 - (void)tabController:(NBLScrollTabController * __nonnull)tabController didSelectViewController:( UIViewController * __nonnull)viewController {
     //业务逻辑处理
 }
+
 
 @end

@@ -16,7 +16,6 @@
 #import "SellHouseController.h"
 #import "ZuCheController.h"
 #import "WorkController.h"
-#import "QiTaController.h"
 #import "PinCheController.h"
 #import "MessageOneCell.h"
 static NSString *oneCellID = @"MainOneCell";
@@ -85,38 +84,6 @@ static NSString *messageOneCellID = @"MessageOneCell";
     view.backgroundColor = [UIColor clearColor];
     return view;
 }
-
-
-//
-////返回每组头部view
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//
-//    UIView *headerView = [[UIView alloc]init];
-//    headerView.backgroundColor = [UIColor colorWithRed:213/255.0 green:25/255.0 blue:16/255.0 alpha:1];
-//    UILabel *label = [[UILabel alloc]init];
-//    label.textColor = [UIColor whiteColor];
-//    label.font = [UIFont systemFontOfSize:13];
-//    label.frame = CGRectMake(15, 0, self.view.frame.size.width-30, 40);
-//    label.textAlignment = NSTextAlignmentCenter;
-//    [headerView addSubview:label];
-//
-//    if(section == 0) {
-//
-//        label.text = @"------ 人气店铺 ------";
-//
-//
-//    }else if (section == 1) {
-//        label.text = @"------ 产品首体验 ------";
-//    }
-//    else{
-//
-//        label.text = @"------ 人气商品 ------";
-//
-//    }
-//
-//    return headerView;
-//
-//}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

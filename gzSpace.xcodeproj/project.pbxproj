@@ -77,13 +77,10 @@
 		EF31ABCD202BF2120073B7BA /* ZuCheController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABCC202BF2120073B7BA /* ZuCheController.m */; };
 		EF31ABD0202BFC530073B7BA /* PinCheController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABCF202BFC530073B7BA /* PinCheController.m */; };
 		EF31ABD3202BFCE00073B7BA /* WorkController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABD2202BFCE00073B7BA /* WorkController.m */; };
-		EF31ABD6202BFD0C0073B7BA /* QiTaController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABD5202BFD0C0073B7BA /* QiTaController.m */; };
 		EF31ABDA202C1D460073B7BA /* PinCheHeadController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABD8202C1D460073B7BA /* PinCheHeadController.m */; };
 		EF31ABDB202C1D460073B7BA /* PinCheHeadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF31ABD9202C1D460073B7BA /* PinCheHeadController.xib */; };
 		EF31ABDE202C21550073B7BA /* PinCheHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABDD202C21550073B7BA /* PinCheHeadView.m */; };
 		EF31ABE0202C21660073B7BA /* PinCheHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF31ABDF202C21660073B7BA /* PinCheHeadView.xib */; };
-		EF31ABE4202C2ACC0073B7BA /* OtherToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABE2202C2ACC0073B7BA /* OtherToolCell.m */; };
-		EF31ABE5202C2ACC0073B7BA /* OtherToolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF31ABE3202C2ACC0073B7BA /* OtherToolCell.xib */; };
 		EF31ABED202C36870073B7BA /* CycleImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF31ABE6202C36860073B7BA /* CycleImageViewCell.xib */; };
 		EF31ABEE202C36870073B7BA /* CycleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABE7202C36860073B7BA /* CycleImageView.m */; };
 		EF31ABEF202C36870073B7BA /* CycleImageViewPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31ABE8202C36860073B7BA /* CycleImageViewPageControl.m */; };
@@ -115,14 +112,18 @@
 		EF5F41082018386A006ABB3D /* NBLScrollTabTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F41032018386A006ABB3D /* NBLScrollTabTheme.m */; };
 		EF5F410B20183B0C006ABB3D /* OrderOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F410A20183B0C006ABB3D /* OrderOneController.m */; };
 		EF5F410E201856F5006ABB3D /* SpaceOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F410D201856F5006ABB3D /* SpaceOneController.m */; };
+		EF5F7F6C204D37DC007C1C7F /* MainMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5F7F6B204D37DC007C1C7F /* MainMessageController.m */; };
 		EF6B92662047E07B0011720E /* ChannelTags.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6B92632047E07B0011720E /* ChannelTags.m */; };
 		EF6B92672047E07B0011720E /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6B92652047E07B0011720E /* ChannelCell.m */; };
 		EF6B926A2047E1F30011720E /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6B92692047E1F30011720E /* Channel.m */; };
+		EF6EFB5D204E6815005D1F79 /* ErShouController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6EFB5C204E6815005D1F79 /* ErShouController.m */; };
+		EF6EFB61204E7026005D1F79 /* ToolsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6EFB5F204E7026005D1F79 /* ToolsCollectionViewCell.m */; };
+		EF6EFB62204E7026005D1F79 /* ToolsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6EFB60204E7026005D1F79 /* ToolsCollectionViewCell.xib */; };
+		EF6EFB66204E986C005D1F79 /* SendHouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6EFB65204E986C005D1F79 /* SendHouseController.m */; };
 		EF8DF0DA201309B100ABA151 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8DF0D8201309B100ABA151 /* StoreCell.m */; };
 		EF8DF0DB201309B100ABA151 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8DF0D9201309B100ABA151 /* StoreCell.xib */; };
 		EFC6122220467FB20034AD48 /* SpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC6122120467FB20034AD48 /* SpaceModel.m */; };
 		EFE3AAA62012F10100DE6211 /* ToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3AAA42012F10100DE6211 /* ToolController.m */; };
-		EFE3AAA72012F10100DE6211 /* ToolController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE3AAA52012F10100DE6211 /* ToolController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,17 +286,12 @@
 		EF31ABCF202BFC530073B7BA /* PinCheController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinCheController.m; sourceTree = "<group>"; };
 		EF31ABD1202BFCE00073B7BA /* WorkController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkController.h; sourceTree = "<group>"; };
 		EF31ABD2202BFCE00073B7BA /* WorkController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkController.m; sourceTree = "<group>"; };
-		EF31ABD4202BFD0C0073B7BA /* QiTaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiTaController.h; sourceTree = "<group>"; };
-		EF31ABD5202BFD0C0073B7BA /* QiTaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiTaController.m; sourceTree = "<group>"; };
 		EF31ABD7202C1D460073B7BA /* PinCheHeadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinCheHeadController.h; sourceTree = "<group>"; };
 		EF31ABD8202C1D460073B7BA /* PinCheHeadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinCheHeadController.m; sourceTree = "<group>"; };
 		EF31ABD9202C1D460073B7BA /* PinCheHeadController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCheHeadController.xib; sourceTree = "<group>"; };
 		EF31ABDC202C21550073B7BA /* PinCheHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinCheHeadView.h; sourceTree = "<group>"; };
 		EF31ABDD202C21550073B7BA /* PinCheHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinCheHeadView.m; sourceTree = "<group>"; };
 		EF31ABDF202C21660073B7BA /* PinCheHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCheHeadView.xib; sourceTree = "<group>"; };
-		EF31ABE1202C2ACC0073B7BA /* OtherToolCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherToolCell.h; sourceTree = "<group>"; };
-		EF31ABE2202C2ACC0073B7BA /* OtherToolCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherToolCell.m; sourceTree = "<group>"; };
-		EF31ABE3202C2ACC0073B7BA /* OtherToolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherToolCell.xib; sourceTree = "<group>"; };
 		EF31ABE6202C36860073B7BA /* CycleImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CycleImageViewCell.xib; sourceTree = "<group>"; };
 		EF31ABE7202C36860073B7BA /* CycleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleImageView.m; sourceTree = "<group>"; };
 		EF31ABE8202C36860073B7BA /* CycleImageViewPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleImageViewPageControl.m; sourceTree = "<group>"; };
@@ -351,12 +347,21 @@
 		EF5F410A20183B0C006ABB3D /* OrderOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderOneController.m; sourceTree = "<group>"; };
 		EF5F410C201856F5006ABB3D /* SpaceOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceOneController.h; sourceTree = "<group>"; };
 		EF5F410D201856F5006ABB3D /* SpaceOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceOneController.m; sourceTree = "<group>"; };
+		EF5F7F6A204D37DC007C1C7F /* MainMessageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMessageController.h; sourceTree = "<group>"; };
+		EF5F7F6B204D37DC007C1C7F /* MainMessageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMessageController.m; sourceTree = "<group>"; };
 		EF6B92622047E07B0011720E /* ChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
 		EF6B92632047E07B0011720E /* ChannelTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTags.m; sourceTree = "<group>"; };
 		EF6B92642047E07B0011720E /* ChannelTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTags.h; sourceTree = "<group>"; };
 		EF6B92652047E07B0011720E /* ChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
 		EF6B92682047E1F30011720E /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
 		EF6B92692047E1F30011720E /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		EF6EFB5B204E6815005D1F79 /* ErShouController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErShouController.h; sourceTree = "<group>"; };
+		EF6EFB5C204E6815005D1F79 /* ErShouController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErShouController.m; sourceTree = "<group>"; };
+		EF6EFB5E204E7026005D1F79 /* ToolsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolsCollectionViewCell.h; sourceTree = "<group>"; };
+		EF6EFB5F204E7026005D1F79 /* ToolsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolsCollectionViewCell.m; sourceTree = "<group>"; };
+		EF6EFB60204E7026005D1F79 /* ToolsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolsCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF6EFB64204E986C005D1F79 /* SendHouseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendHouseController.h; sourceTree = "<group>"; };
+		EF6EFB65204E986C005D1F79 /* SendHouseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendHouseController.m; sourceTree = "<group>"; };
 		EF8DF0D7201309B100ABA151 /* StoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		EF8DF0D8201309B100ABA151 /* StoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
 		EF8DF0D9201309B100ABA151 /* StoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
@@ -364,7 +369,6 @@
 		EFC6122120467FB20034AD48 /* SpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceModel.m; sourceTree = "<group>"; };
 		EFE3AAA32012F10100DE6211 /* ToolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolController.h; sourceTree = "<group>"; };
 		EFE3AAA42012F10100DE6211 /* ToolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolController.m; sourceTree = "<group>"; };
-		EFE3AAA52012F10100DE6211 /* ToolController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,6 +572,7 @@
 		EF0D215F1FDE66E700B9D776 /* gzSpace */ = {
 			isa = PBXGroup;
 			children = (
+				EF6EFB63204E9852005D1F79 /* send */,
 				EFE3AAA22012F0E400DE6211 /* tool */,
 				EF4891E61FDFA663005982B2 /* otherfile */,
 				EF4891DD1FDF80FA005982B2 /* store */,
@@ -621,6 +626,8 @@
 				EF3F75552044F83200151145 /* model */,
 				EF0D21A51FDE774800B9D776 /* MainController.h */,
 				EF0D21A61FDE774800B9D776 /* MainController.m */,
+				EF5F7F6A204D37DC007C1C7F /* MainMessageController.h */,
+				EF5F7F6B204D37DC007C1C7F /* MainMessageController.m */,
 				EF0D21A81FDE774B00B9D776 /* view */,
 				EF3D68F1202AF36D00225C86 /* TentingHouseController.h */,
 				EF3D68F2202AF36D00225C86 /* TentingHouseController.m */,
@@ -632,10 +639,10 @@
 				EF31ABCF202BFC530073B7BA /* PinCheController.m */,
 				EF31ABD1202BFCE00073B7BA /* WorkController.h */,
 				EF31ABD2202BFCE00073B7BA /* WorkController.m */,
-				EF31ABD4202BFD0C0073B7BA /* QiTaController.h */,
-				EF31ABD5202BFD0C0073B7BA /* QiTaController.m */,
 				EF31ABF6202C413D0073B7BA /* MessageController.h */,
 				EF31ABF7202C413D0073B7BA /* MessageController.m */,
+				EF6EFB5B204E6815005D1F79 /* ErShouController.h */,
+				EF6EFB5C204E6815005D1F79 /* ErShouController.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -716,9 +723,6 @@
 				EF31ABDC202C21550073B7BA /* PinCheHeadView.h */,
 				EF31ABDD202C21550073B7BA /* PinCheHeadView.m */,
 				EF31ABDF202C21660073B7BA /* PinCheHeadView.xib */,
-				EF31ABE1202C2ACC0073B7BA /* OtherToolCell.h */,
-				EF31ABE2202C2ACC0073B7BA /* OtherToolCell.m */,
-				EF31ABE3202C2ACC0073B7BA /* OtherToolCell.xib */,
 				EF31ABF1202C3F060073B7BA /* MessageOneCell.h */,
 				EF31ABF2202C3F060073B7BA /* MessageOneCell.m */,
 				EF31ABF3202C3F060073B7BA /* MessageOneCell.xib */,
@@ -834,6 +838,15 @@
 			path = changeTag;
 			sourceTree = "<group>";
 		};
+		EF6EFB63204E9852005D1F79 /* send */ = {
+			isa = PBXGroup;
+			children = (
+				EF6EFB64204E986C005D1F79 /* SendHouseController.h */,
+				EF6EFB65204E986C005D1F79 /* SendHouseController.m */,
+			);
+			path = send;
+			sourceTree = "<group>";
+		};
 		EF8DF0D62013098700ABA151 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,13 +871,15 @@
 			children = (
 				EFE3AAA32012F10100DE6211 /* ToolController.h */,
 				EFE3AAA42012F10100DE6211 /* ToolController.m */,
-				EFE3AAA52012F10100DE6211 /* ToolController.xib */,
 				EF1252A120157F3300670A45 /* UseGzController.h */,
 				EF1252A220157F3300670A45 /* UseGzController.m */,
 				EF1252A420158D8E00670A45 /* UseGzJiaController.h */,
 				EF1252A520158D8E00670A45 /* UseGzJiaController.m */,
 				EF1252A720158F3600670A45 /* ScanController.h */,
 				EF1252A820158F3600670A45 /* ScanController.m */,
+				EF6EFB5E204E7026005D1F79 /* ToolsCollectionViewCell.h */,
+				EF6EFB5F204E7026005D1F79 /* ToolsCollectionViewCell.m */,
+				EF6EFB60204E7026005D1F79 /* ToolsCollectionViewCell.xib */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -981,13 +996,12 @@
 				EF0D216A1FDE66E700B9D776 /* Assets.xcassets in Resources */,
 				EF31ABE0202C21660073B7BA /* PinCheHeadView.xib in Resources */,
 				EF1252AE2015B40000670A45 /* MeOneCell.xib in Resources */,
-				EF31ABE5202C2ACC0073B7BA /* OtherToolCell.xib in Resources */,
 				EF0D21C51FDEAC9200B9D776 /* MeHeadView.xib in Resources */,
+				EF6EFB62204E7026005D1F79 /* ToolsCollectionViewCell.xib in Resources */,
 				EF31ABED202C36870073B7BA /* CycleImageViewCell.xib in Resources */,
 				EF4892161FDFB659005982B2 /* MainOneCell.xib in Resources */,
 				EF5F40F320182A8F006ABB3D /* BuHuoCell.xib in Resources */,
 				EF31ABDB202C1D460073B7BA /* PinCheHeadController.xib in Resources */,
-				EFE3AAA72012F10100DE6211 /* ToolController.xib in Resources */,
 				EF0D21BA1FDE9D9300B9D776 /* MainHeadView.xib in Resources */,
 				EF5F40F8201833D5006ABB3D /* GzManageCell.xib in Resources */,
 				EF8DF0DB201309B100ABA151 /* StoreCell.xib in Resources */,
@@ -1076,11 +1090,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF1252BC2015D46600670A45 /* GzManageController.m in Sources */,
+				EF6EFB66204E986C005D1F79 /* SendHouseController.m in Sources */,
 				EF07A67A200F324300A6604D /* NSArray+YYAdd.m in Sources */,
 				EF0D21A71FDE774800B9D776 /* MainController.m in Sources */,
 				EF07A66D200F324300A6604D /* UIBezierPath+YYAdd.m in Sources */,
 				EF5F41052018386A006ABB3D /* NBLScrollTabItem.m in Sources */,
 				EF48921A1FDFC766005982B2 /* MainTwoCell.m in Sources */,
+				EF6EFB61204E7026005D1F79 /* ToolsCollectionViewCell.m in Sources */,
 				EF07A678200F324300A6604D /* UIControl+YYAdd.m in Sources */,
 				EF07A689200F324300A6604D /* CALayer+YYAdd.m in Sources */,
 				EF07A67E200F324300A6604D /* NSData+YYAdd.m in Sources */,
@@ -1114,6 +1130,7 @@
 				EF5F40F7201833D5006ABB3D /* GzManageCell.m in Sources */,
 				EF3F75582044F9B300151145 /* MainMessageModel.m in Sources */,
 				EF07A66F200F324300A6604D /* UIDevice+YYAdd.m in Sources */,
+				EF6EFB5D204E6815005D1F79 /* ErShouController.m in Sources */,
 				EF0D21B51FDE924500B9D776 /* MeController.m in Sources */,
 				EF1252B92015D41C00670A45 /* GoodsManageController.m in Sources */,
 				EF07A699200F337500A6604D /* UILabel+LXAdd.m in Sources */,
@@ -1139,11 +1156,11 @@
 				EF37C784201704FE007A6E9A /* OrderOneCell.m in Sources */,
 				EF5F41072018386A006ABB3D /* NBLScrollTabView.m in Sources */,
 				EF07A688200F324300A6604D /* YYCGUtilities.m in Sources */,
+				EF5F7F6C204D37DC007C1C7F /* MainMessageController.m in Sources */,
 				EF07A695200F337500A6604D /* UILabel+YDBCommon.m in Sources */,
 				EF5F410E201856F5006ABB3D /* SpaceOneController.m in Sources */,
 				EF6B92672047E07B0011720E /* ChannelCell.m in Sources */,
 				EF07A670200F324300A6604D /* UIApplication+YYAdd.m in Sources */,
-				EF31ABE4202C2ACC0073B7BA /* OtherToolCell.m in Sources */,
 				EF4892151FDFB659005982B2 /* MainOneCell.m in Sources */,
 				EF0D21701FDE66E800B9D776 /* main.m in Sources */,
 				EF07A682200F324300A6604D /* NSObject+YYAddForARC.m in Sources */,
@@ -1151,7 +1168,6 @@
 				EFE3AAA62012F10100DE6211 /* ToolController.m in Sources */,
 				EF31ABF0202C36870073B7BA /* CycleImageViewCell.m in Sources */,
 				EF1252B22015B60200670A45 /* MeTwoCell.m in Sources */,
-				EF31ABD6202BFD0C0073B7BA /* QiTaController.m in Sources */,
 				EF5F41042018386A006ABB3D /* NBLScrollTabController.m in Sources */,
 				EF07A698200F337500A6604D /* NSObject+YDBAdd.m in Sources */,
 				EF5F410B20183B0C006ABB3D /* OrderOneController.m in Sources */,

@@ -9,5 +9,5 @@
 #import "BaseController.h"
 
 @interface ZuCheController : BaseController
-
+@property(nonatomic,strong)NSString *types;
 @end

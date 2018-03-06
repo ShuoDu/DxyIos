@@ -16,13 +16,13 @@
 #import "SellHouseController.h"
 #import "ZuCheController.h"
 #import "WorkController.h"
-#import "QiTaController.h"
 #import "PinCheController.h"
 #import "MessageOneCell.h"
 #import "MessageTwoCell.h"
 #import "MainMessageModel.h"
 #import "ChannelTags.h"
 #import "Channel.h"
+#import "ErShouController.h"
 static NSString *oneCellID = @"MainOneCell";
 static NSString *twoCellID = @"MessageTwoCell";
 static NSString *oneMessage = @"MessageOneCell";
@@ -100,38 +100,47 @@ static NSString *oneMessage = @"MessageOneCell";
     
     self.headView = [MainHeadView ins:^(NSInteger tag) {
         if (tag == 401) {
-            SpaceController *space = [[SpaceController alloc]init];
-            [space setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:space animated:YES];
+            ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"租房";
+            [tening setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:tening animated:YES];
         }else if (tag == 402){
-            TentingHouseController *tening = [[TentingHouseController alloc]init];
+            ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"卖房";
             [tening setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:tening animated:YES];
         }else if (tag == 403){
-            SellHouseController *tening = [[SellHouseController alloc]init];
+            ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"维修";
             [tening setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:tening animated:YES];
         }else if (tag == 404){
             ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"租车";
             [tening setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:tening animated:YES];
         }else if (tag == 405){
-            PinCheController *pinChe = [[PinCheController alloc]init];
-            [pinChe setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:pinChe animated:YES];
+            ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"二手";
+            [tening setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:tening animated:YES];
         }
         else if (tag == 406){
-            WorkController *work = [[WorkController alloc]init];
+            PinCheController *work = [[PinCheController alloc]init];
             [work setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:work animated:YES];
         }
         else if (tag == 407){
-            
+            ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"工作";
+            [tening setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:tening animated:YES];
         }
         else if (tag == 408){
-            QiTaController *other = [[QiTaController alloc]init];
-            [other setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:other animated:YES];
+            ZuCheController *tening = [[ZuCheController alloc]init];
+            tening.types = @"装修";
+            [tening setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:tening animated:YES];
         }
     }];
     self.headView.frame = CGRectMake(0, 0, WIDTH, 365);
@@ -142,8 +151,8 @@ static NSString *oneMessage = @"MessageOneCell";
 
 - (void)loadData:(NSString *)type {
     NSDictionary *parm = @{@"type":type};
-    NSString *url = @"http://192.168.200.93:8080/main/type_mesage/";
-    [CYXHttpRequest get:url params:parm success:^(id responseObj) {
+    NSString *urls = [NSString stringWithFormat:@"%@%@",Host,@"main/type_mesage/"];
+    [CYXHttpRequest get:urls params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
         [self.dataArray removeAllObjects];
         self.dataArray=[NSMutableArray array];
@@ -173,34 +182,40 @@ static NSString *oneMessage = @"MessageOneCell";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 40)];//创建一个视图
-    headerView.backgroundColor = [UIColor clearColor];
-    headerView.layer.borderWidth = 0.5;
-    headerView.layer.borderColor = [UIColor colorWithHexString:@"DCDCDC"].CGColor;
-    UIScrollView *myScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 40)];
-    myScroll.backgroundColor = [UIColor whiteColor];
-    [myScroll setContentSize:CGSizeMake(WIDTH+20, 40)];
-    [myScroll setShowsHorizontalScrollIndicator:NO];
-    [headerView addSubview:myScroll];
-    NSArray *dataArray = @[@"头条",@"政府",@"教育",@"活动",@"汽车",@"其他"];
-    self.btnArray = [[NSMutableArray alloc]init];
-    for (int i=0; i<dataArray.count; i++) {
-        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(15+(65*i), 0, 65, 40)];
-        btn.backgroundColor = [UIColor whiteColor];
-        btn.tag = 600+i;
-        btn.font = [UIFont systemFontOfSize:15];
-        [btn setTitle:dataArray[i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
-        if(btn.tag == 600){
-            btn.font = [UIFont systemFontOfSize:17];
-         [btn setTitleColor:MainNavColor forState:UIControlStateNormal];
-        }
-        [btn addTarget:self action:@selector(messageAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [myScroll addSubview:btn];
-        [self.btnArray addObject:btn];
-    }
-    return headerView;
+
+    UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 40)];
+    lab.text = @"- - -  猜你所想  - - -";
+    lab.textColor = [UIColor darkGrayColor];
+    lab.textAlignment =NSTextAlignmentCenter;
+    return lab;
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 40)];//创建一个视图
+//    headerView.backgroundColor = [UIColor clearColor];
+//    headerView.layer.borderWidth = 0.5;
+//    headerView.layer.borderColor = [UIColor colorWithHexString:@"DCDCDC"].CGColor;
+//    UIScrollView *myScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 40)];
+//    myScroll.backgroundColor = [UIColor whiteColor];
+//    [myScroll setContentSize:CGSizeMake(WIDTH+20, 40)];
+//    [myScroll setShowsHorizontalScrollIndicator:NO];
+//    [headerView addSubview:myScroll];
+//    NSArray *dataArray = @[@"头条",@"政府",@"教育",@"活动",@"汽车",@"其他"];
+//    self.btnArray = [[NSMutableArray alloc]init];
+//    for (int i=0; i<dataArray.count; i++) {
+//        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(15+(65*i), 0, 65, 40)];
+//        btn.backgroundColor = [UIColor whiteColor];
+//        btn.tag = 600+i;
+//        btn.font = [UIFont systemFontOfSize:15];
+//        [btn setTitle:dataArray[i] forState:UIControlStateNormal];
+//        [btn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
+//        if(btn.tag == 600){
+//            btn.font = [UIFont systemFontOfSize:17];
+//         [btn setTitleColor:MainNavColor forState:UIControlStateNormal];
+//        }
+//        [btn addTarget:self action:@selector(messageAction:) forControlEvents:UIControlEventTouchUpInside];
+//
+//        [myScroll addSubview:btn];
+//        [self.btnArray addObject:btn];
+//    }
+//    return headerView;
 }
 
 - (void)messageAction:(UIButton *)btn {
@@ -237,19 +252,12 @@ static NSString *oneMessage = @"MessageOneCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainMessageModel *model = self.dataArray[indexPath.row];
     UITableViewCell  * cell = [tableView dequeueReusableCellWithIdentifier:oneCellID];
-    if (indexPath.row/2 == 0) {
-        MessageTwoCell *cellOne = [tableView dequeueReusableCellWithIdentifier:twoCellID];
-        [cellOne loadData:model];
-        cell = cellOne;
-    } else {
-        MessageOneCell *mesOne = [tableView dequeueReusableCellWithIdentifier:oneMessage];
-        [mesOne loadData:model];
-        cell = mesOne;
-    }
-     cell.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
-     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    MessageTwoCell *cellOne = [tableView dequeueReusableCellWithIdentifier:twoCellID];
+    [cellOne loadData:model];
+    cell = cellOne;
+    cell.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-
 }
 
 @end

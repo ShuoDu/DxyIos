@@ -21,22 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    MainController *viewController0 = [[MainController alloc] init];
-    UINavigationController * mainNav = [[UINavigationController alloc]initWithRootViewController:viewController0];
+    MainController *mainVc = [[MainController alloc] init];
+    UINavigationController * mainNav = [[UINavigationController alloc]initWithRootViewController:mainVc];
     
-//    SpaceController *viewController1 = [[SpaceController alloc] init];
-//    UINavigationController * gzNav = [[UINavigationController alloc]initWithRootViewController:viewController1];
-    
-    UIViewController *viewController2= [[UIViewController alloc] init];
-    viewController2.view.backgroundColor = [UIColor whiteColor];
-
-    
-//    StoreController *viewController3 = [[StoreController alloc] init];
-//    UINavigationController * storeNav = [[UINavigationController alloc]initWithRootViewController:viewController3];
+    ToolController *tool = [[ToolController alloc]init];
+    UINavigationController * toolNav = [[UINavigationController alloc]initWithRootViewController:tool];
+ 
     
     MeController *viewController4 = [[MeController alloc] init];
     UINavigationController * meNav = [[UINavigationController alloc]initWithRootViewController:viewController4];
-    self.viewControllers = @[mainNav,viewController2,meNav];
+    self.viewControllers = @[mainNav,toolNav,meNav];
     
     [self setupTabBar];
     [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
@@ -59,23 +53,11 @@
                 obj.tabBarItem.selectedImage = [[UIImage imageNamed:@"main"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
                 obj.tabBarItem.title=@"首页";
             } break;
-//            case 1:{
-//                obj.tabBarItem.image = [[UIImage imageNamed:@"space"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                obj.tabBarItem.selectedImage = [[UIImage imageNamed:@"space_select"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                obj.tabBarItem.title=@"格子铺";
-//
-//            } break;
             case 1:{
                 obj.tabBarItem.enabled=NO;
-                obj.tabBarItem.title=@"";
+                obj.tabBarItem.title=@"发布";
                 
             } break;
-//            case 3:{
-//                obj.tabBarItem.image = [[UIImage imageNamed:@"space"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                obj.tabBarItem.selectedImage = [[UIImage imageNamed:@"space_select"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                obj.tabBarItem.title=@"发现";
-//
-//            } break;
             case 2:{
                 obj.tabBarItem.image = [[UIImage imageNamed:@"me_noselect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
                 obj.tabBarItem.selectedImage = [[UIImage imageNamed:@"me"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -114,9 +96,8 @@
 }
 
 - (void)addTool {
-    ToolController *tool = [[ToolController alloc]init];
-    [self presentViewController:tool animated:NO completion:nil];
 
+   self.selectedIndex = 1;
 }
 
 @end

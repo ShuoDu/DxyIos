@@ -26,7 +26,7 @@
     lhAlpha = 1;
     [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"first"];
     [[NSUserDefaults standardUserDefaults]synchronize];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:213/255.0 green:25/255.0 blue:16/255.0 alpha:1];
+
     self.navigationController.navigationBar.barTintColor = MainNavColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;

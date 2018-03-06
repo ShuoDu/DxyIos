@@ -29,7 +29,7 @@
                         <constraint firstAttribute="height" constant="86" id="F7H-1u-0tl"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="餐厅" image="waimai">
+                    <state key="normal" title="租房" image="zufang">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -37,13 +37,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyH-y1-0bh">
-                    <rect key="frame" x="109" y="173" width="88" height="86"/>
+                    <rect key="frame" x="109" y="173" width="88.5" height="86"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="wuZ-yQ-wUH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="租房" image="zufang">
+                    <state key="normal" title="卖房" image="maifang">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -51,7 +51,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFd-5L-KFn">
-                    <rect key="frame" x="306" y="173" width="88.5" height="86"/>
+                    <rect key="frame" x="306.5" y="173" width="88" height="86"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="8M5-Uh-MpB"/>
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="height" constant="86" id="Hcv-MB-7yb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="团购" image="tuangou">
+                    <state key="normal" title="二手" image="ershou">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -112,7 +112,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="BRt-2t-aMh"/>
                     </constraints>
-                    <state key="normal" title="其他" image="qita">
+                    <state key="normal" title="装修" image="qita">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -120,13 +120,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvG-X3-PoV">
-                    <rect key="frame" x="207" y="173" width="89" height="86"/>
+                    <rect key="frame" x="207.5" y="173" width="89" height="86"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="chm-Bk-iM9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="卖房" image="maifang">
+                    <state key="normal" title="维修" image="weixiu">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -176,17 +176,17 @@
                 <outlet property="three" destination="IvG-X3-PoV" id="3iq-rx-mea"/>
                 <outlet property="two" destination="nyH-y1-0bh" id="bct-Xc-5PM"/>
             </connections>
-            <point key="canvasLocation" x="-3784.5" y="-1445"/>
+            <point key="canvasLocation" x="-4797" y="-1420"/>
         </view>
     </objects>
     <resources>
+        <image name="ershou" width="33" height="33"/>
         <image name="gongzuo" width="50" height="50"/>
         <image name="maifang" width="50" height="50"/>
         <image name="pinche" width="50" height="50"/>
         <image name="qita" width="50" height="50"/>
         <image name="scroll_top" width="554" height="324"/>
-        <image name="tuangou" width="50" height="50"/>
-        <image name="waimai" width="50" height="50"/>
+        <image name="weixiu" width="33" height="33"/>
         <image name="zuche" width="50" height="50"/>
         <image name="zufang" width="50" height="50"/>
     </resources>

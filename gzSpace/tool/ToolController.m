@@ -10,29 +10,36 @@
 #import "UseGzController.h"
 #import "UseGzJiaController.h"
 #import "ScanController.h"
-#import "OtherToolCell.h"
+#import "ToolsCollectionViewCell.h"
+#import "SendHouseController.h"
+
 static NSString * identifier = @"cxCellID";
 static CGFloat kMagin = 10.f;
 static NSString * headIdentifier = @"cxHeadID";
-@interface ToolController ()<UICollectionViewDataSource>
+@interface ToolController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
+@property(nonatomic,copy)NSArray *dataArray;
 @end
 
 @implementation ToolController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.collectionView];
+- (void)loadView {
+    [super loadView];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+     self.navigationItem.title = @"发布";
+    [self.view addSubview:self.collectionView];
+     self.dataArray = @[@[@"房产信息",@"zufang"],@[@"汽车出租",@"zuche"],@[@"拼车信息",@"pinche"],@[@"本地服务",@"qita"],@[@"二手信息",@"ershou"],@[@"家政服务",@"maifang"],@[@"打折活动",@"tuangou"],@[@"擅长技能",@"qita"]];
+}
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         //自动网格布局
         UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
         //设置单元格大小
-        flowLayout.itemSize = CGSizeMake((WIDTH-50)/4, 100);
+        flowLayout.itemSize = CGSizeMake((WIDTH-50)/3, 100);
         //最小行间距(默认为10)
         flowLayout.minimumLineSpacing = 10;
         //最小item间距（默认为10）
@@ -40,13 +47,14 @@ static NSString * headIdentifier = @"cxHeadID";
         //设置senction的内边距
         flowLayout.sectionInset = UIEdgeInsetsMake(kMagin, kMagin, kMagin, kMagin);
         //网格布局
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, HEIGHT-340, WIDTH, 300) collectionViewLayout:flowLayout];
-        [_collectionView registerNib:[UINib nibWithNibName:@"OtherToolCell" bundle:nil] forCellWithReuseIdentifier:@"storeCell"];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, WIDTH, HEIGHT) collectionViewLayout:flowLayout];
+        [_collectionView registerNib:[UINib nibWithNibName:@"ToolsCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"storeCell"];
         //注册cell
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
         //设置数据源代理
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.dataSource = self;
+        _collectionView.delegate = self;
     }
     return _collectionView;
 }
@@ -58,41 +66,35 @@ static NSString * headIdentifier = @"cxHeadID";
 
 //每个分组里有多少个item
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //根据identifier从缓冲池里去出cell
-    OtherToolCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"storeCell" forIndexPath:indexPath];
+    ToolsCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"storeCell" forIndexPath:indexPath];
+//    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = 18;
+    NSArray * dic = self.dataArray[indexPath.row];
+    cell.title.text = dic[0];
     cell.backgroundColor = [UIColor whiteColor];
+    cell.img.image = [UIImage imageNamed:dic[1]];
+    //添加阴影
+    cell.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    cell.layer.shadowOffset = CGSizeMake(0, -5);
+    cell.layer.shadowOpacity = 0.3;
     return cell;
 }
 
-- (IBAction)cancleAction:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        NSLog(@"点我干啥");
+        SendHouseController *house = [[SendHouseController alloc]init];
+        house.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:house animated:YES];
+    }
 }
 
-- (IBAction)oneAction:(id)sender {
-    UseGzController *useGz = [[UseGzController alloc]init];
-    UINavigationController *useGzNav = [[UINavigationController alloc]initWithRootViewController:useGz];
-    [self presentViewController:useGzNav animated:YES completion:nil];
-}
 
-- (IBAction)twoAction:(id)sender {
-    ScanController *scanView = [[ScanController alloc]init];
-    UINavigationController *scanNav = [[UINavigationController alloc]initWithRootViewController:scanView];
-    [self presentViewController:scanNav animated:YES completion:nil];
-}
-
-- (IBAction)threeAction:(id)sender {
-    UseGzJiaController *useGz = [[UseGzJiaController alloc]init];
-    UINavigationController *useGzjNav = [[UINavigationController alloc]initWithRootViewController:useGz];
-    [self presentViewController:useGzjNav animated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 
 @end

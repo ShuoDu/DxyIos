@@ -22,19 +22,20 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         //title
         _title = [[UILabel alloc]init];
         [self.contentView addSubview:_title];
         _title.frame = CGRectMake(5, 5, frame.size.width-10, frame.size.height-10);
-        _title.backgroundColor = MainNavColor;
+        _title.backgroundColor = [UIColor colorWithRed:255/255.0 green:100/255.0 blue:59/255.0 alpha:0.92] ;
         _title.layer.masksToBounds = YES;
-        _title.layer.cornerRadius = M_PI;
-        _title.font = [UIFont systemFontOfSize:16];
+        _title.layer.cornerRadius = 22;
+//        _title.layer.borderWidth = 1;
+//        _title.layer.borderColor = MainNavColor.CGColor;
+        _title.font = [UIFont systemFontOfSize:15];
         _title.textAlignment = NSTextAlignmentCenter;
         _title.numberOfLines = 0;
-        _title.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.00];
-//         _title.textColor = [UIColor whiteColor];
+//        _title.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.00];
+         _title.textColor = [UIColor blackColor];
         _delBtn = [[UIButton alloc]init];
         [self.contentView addSubview:_delBtn];
         _delBtn.frame = CGRectMake(frame.size.width-18, 0, 18, 18);
@@ -64,7 +65,7 @@
         
         //选择出来的tag高亮显示
         if (model.selected) {
-            _title.textColor = [UIColor colorWithRed:0.5 green:0.26 blue:0.27 alpha:1.0];
+            _title.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.0];
         }else{
             _title.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.0];
         }
@@ -72,6 +73,7 @@
     }else if (model.tagType == RecommandChannel){
         if (![model.title containsString:@"＋"]) {
             model.title = [@"＋" stringByAppendingString:model.title];
+            _title.textColor = [UIColor blackColor];
         }
         if (model.editable) {
             model.editable = NO;

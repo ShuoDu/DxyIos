@@ -20,13 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title= @"租车";
-    [self loadData:@"租车"];
+    self.navigationItem.title= self.types;
+    [self loadData:self.types];
 }
 
 - (void)loadData:(NSString *)type {
     NSDictionary *parm = @{@"type":type};
-    NSString *url = @"http://192.168.200.93:8080/main/service_detail_type/";
+    NSString *url = [NSString stringWithFormat:@"%@%@",Host,@"main/service_detail_type/"];
     [CYXHttpRequest get:url params:parm success:^(id responseObj) {
         NSMutableArray *dataArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
         self.datasArray = [NSMutableArray array];
@@ -62,7 +62,6 @@
             demo0.type = self.datasArray[i];
             NBLScrollTabItem *demo0Item = [[NBLScrollTabItem alloc] init];
             demo0Item.title = self.datasArray[i];
-            
             demo0Item.textColor = [UIColor darkGrayColor];
             demo0Item.highlightColor = MainNavColor;
             demo0Item.hideBadge = YES;//每个title可以做个性化配置

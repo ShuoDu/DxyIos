@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.00];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = MainNavColor;
     //加载数据
     [self makeTags];
     //视图
@@ -52,7 +52,7 @@
     for (NSString *title in _myChannels) {
         Channel *mod = [[Channel alloc]init];
         mod.title = title;
-        if ([title isEqualToString:@"餐饮"]||[title isEqualToString:@"租房"]||[title isEqualToString:@"卖房"]||[title isEqualToString:@"拼购"]||[title isEqualToString:@"拼车"]||[title isEqualToString:@"活动"]) {
+        if ([title isEqualToString:@"餐饮"]||[title isEqualToString:@"租房"]||[title isEqualToString:@"卖房"]||[title isEqualToString:@"拼购"]||[title isEqualToString:@"拼车"]||[title isEqualToString:@"活动"]||[title isEqualToString:@"租车"]) {
             mod.resident = YES;//常驻
         }
         mod.editable = YES;
@@ -67,7 +67,7 @@
     for (NSString *title in _recommandChannels) {
         Channel *mod = [[Channel alloc]init];
         mod.title = title;
-        if ([title isEqualToString:@"餐饮"]||[title isEqualToString:@"租房"]||[title isEqualToString:@"卖房"]||[title isEqualToString:@"拼购"]||[title isEqualToString:@"拼车"]||[title isEqualToString:@"活动"]) {
+        if ([title isEqualToString:@"餐饮"]||[title isEqualToString:@"租房"]||[title isEqualToString:@"卖房"]||[title isEqualToString:@"拼购"]||[title isEqualToString:@"拼车"]||[title isEqualToString:@"活动"]||[title isEqualToString:@"租车"]) {
             mod.resident = YES;//常驻
         }
         mod.editable = NO;
@@ -77,17 +77,12 @@
 }
 
 - (void)setupViews {
-    UIButton *exit = [[UIButton alloc]init];
-    [self.view addSubview:exit];
-    exit.frame = CGRectMake(15, 30, 20, 20);
-    [exit setImage:[UIImage imageNamed:@"Exit"] forState:UIControlStateNormal];
-    exit.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [exit addTarget:self action:@selector(returnLast) forControlEvents:UIControlEventTouchUpInside];
-    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    _mainView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, exit.frame.origin.y+exit.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-40) collectionViewLayout:layout];
+    _mainView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:layout];
     [self.view addSubview:_mainView];
-    _mainView.backgroundColor = [UIColor whiteColor];
+    _mainView.layer.masksToBounds = YES;
+    _mainView.layer.cornerRadius = 18;
+    _mainView.backgroundColor = ViewBackColor;;
     [_mainView registerClass:[ChannelCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     [_mainView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"head1"];
     [_mainView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"head2"];
@@ -96,6 +91,14 @@
     //添加长按的手势
     UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
     [_mainView addGestureRecognizer:longPress];
+
+    UIButton *exit = [[UIButton alloc]init];
+    [self.view addSubview:exit];
+    [exit setTitle:@"取消" forState:UIControlStateNormal];
+    [exit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    exit.frame = CGRectMake(0, self.view.bottom-40, WIDTH, 45);
+    exit.backgroundColor = MainNavColor;
+    [exit addTarget:self action:@selector(returnLast) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)longPress:(UIGestureRecognizer *)longPress {

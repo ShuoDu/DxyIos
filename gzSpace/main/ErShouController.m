@@ -1,28 +1,28 @@
 //
-//  WorkController.m
+//  ErShouController.m
 //  gzSpace
 //
-//  Created by 智享单车 on 2018/2/8.
+//  Created by 智享单车 on 2018/3/6.
 //  Copyright © 2018年 智享单车. All rights reserved.
 //
 
-#import "WorkController.h"
+#import "ErShouController.h"
 #import "NBLScrollTabController.h"
 #import "SpaceOneController.h"
 #import "MainMessageModel.h"
-@interface WorkController ()<NBLScrollTabControllerDelegate>
+@interface ErShouController ()<NBLScrollTabControllerDelegate>
 @property (nonatomic, strong) NBLScrollTabController *scrollTabController;
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 @property (nonatomic, strong) NSMutableArray *datasArray;
 
 @end
 
-@implementation WorkController
+@implementation ErShouController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"工作";
-    [self loadData:@"工作"];
+    self.navigationItem.title = @"二手";
+    [self loadData:@"二手"];
 }
 
 - (void)loadData:(NSString *)type {
