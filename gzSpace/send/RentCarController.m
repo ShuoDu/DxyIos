@@ -1,32 +1,32 @@
 //
-//  SendHouseController.m
+//  RentCarController.m
 //  gzSpace
 //
-//  Created by 智享单车 on 2018/3/6.
+//  Created by 智享单车 on 2018/3/7.
 //  Copyright © 2018年 智享单车. All rights reserved.
 //
 
-#import "SendHouseController.h"
+#import "RentCarController.h"
 #import "UIColor+YYAdd.h"
 #import "SwitchHouseType.h"
 static NSString *rovedCellID = @"YDBAppRovedCell";
-@interface SendHouseController ()<UITableViewDelegate,UITableViewDataSource>
+@interface RentCarController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myTab;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) SwitchHouseType *switchView;
 @end
 
-@implementation SendHouseController
+@implementation RentCarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"房屋出租";
+    self.navigationItem.title  = @"汽车出租";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(sendMessage)];
     self.navigationItem.rightBarButtonItem = rightItem;
-//     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},nil];
-     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请选择厅室"},@{@"楼层":@"请选择楼层"},@{@"电梯":@"请选择"},@{@"月租金":@"请选择月租金及支付方式"},@{@"联系人":@"请输入联系方式"},nil];
+    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"身份":@"请选择身份"},@{@"汽车类别":@"请选择类别"},@{@"区域":@"请输入服务区域"},@{@"联系人":@"至少两字"},@{@"电话":@"请输入联系人电话"},nil];
     [self addTabView];
 }
+
 
 -(void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -88,18 +88,23 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
         self.switchView = [SwitchHouseType insWithCallback:^(NSInteger tag){
             if (tag == 001) {
                 [self.dataArray removeObjectAtIndex:0];
-                [self.dataArray insertObject:@{@"出租类型":@"整租"} atIndex:0];
+                [self.dataArray insertObject:@{@"发布者身份":@"个人"} atIndex:0];
                 [self.myTab reloadData];
             } else if (tag == 002) {
                 [self.dataArray removeObjectAtIndex:0];
-                [self.dataArray insertObject:@{@"出租类型":@"合租"} atIndex:0];
+                [self.dataArray insertObject:@{@"发布者身份":@"中介"} atIndex:0];
                 [self.myTab reloadData];
             } else if (tag == 003) {
                 [self.dataArray removeObjectAtIndex:0];
-                [self.dataArray insertObject:@{@"出租类型":@"短租/小时"} atIndex:0];
+                [self.dataArray insertObject:@{@"发布者身份":@"公司"} atIndex:0];
+                [self.dataArray insertObject:@{@"公司名称":@"请输入公司名称"} atIndex:2];
                 [self.myTab reloadData];
             }
         }];
+        self.switchView.title.text = @"身份选择";
+        [self.switchView.one setTitle:@"个人" forState:UIControlStateNormal];
+        [self.switchView.two setTitle:@"中介" forState:UIControlStateNormal];
+        [self.switchView.three setTitle:@"公司" forState:UIControlStateNormal];
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTouch)];
         [self.switchView addGestureRecognizer:tapGesture];
         self.switchView.frame = [UIScreen mainScreen].bounds;
@@ -110,6 +115,5 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 - (void)viewTouch {
     [self.switchView removeFromSuperview];
 }
-
 
 @end

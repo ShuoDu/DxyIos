@@ -184,7 +184,7 @@ static NSString *oneMessage = @"MessageOneCell";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 40)];
-    lab.text = @"- - -  猜你所想  - - -";
+    lab.text = @"- - -  同城头条  - - -";
     lab.textColor = [UIColor darkGrayColor];
     lab.textAlignment =NSTextAlignmentCenter;
     return lab;

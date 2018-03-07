@@ -8,7 +8,6 @@
 #define BACKGROUND_IMAGE (__bridge id)[UIImage imageNamed:@"application_bg"].CGImage
 #import "GzTabBarViewController.h"
 #import "MainController.h"
-#import "OrderController.h"
 #import "MeController.h"
 #import "SpaceController.h"
 #import "StoreController.h"

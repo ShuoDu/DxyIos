@@ -12,7 +12,12 @@
 #import "ScanController.h"
 #import "ToolsCollectionViewCell.h"
 #import "SendHouseController.h"
-
+#import "RentCarController.h"
+#import "SellHousesController.h"
+#import "LocalServiceController.h"
+#import "UserMessageController.h"
+#import "CarSharingController.h"
+#import "DaZheController.h"
 static NSString * identifier = @"cxCellID";
 static CGFloat kMagin = 10.f;
 static NSString * headIdentifier = @"cxHeadID";
@@ -31,7 +36,7 @@ static NSString * headIdentifier = @"cxHeadID";
     [super viewDidLoad];
      self.navigationItem.title = @"发布";
     [self.view addSubview:self.collectionView];
-     self.dataArray = @[@[@"房产信息",@"zufang"],@[@"汽车出租",@"zuche"],@[@"拼车信息",@"pinche"],@[@"本地服务",@"qita"],@[@"二手信息",@"ershou"],@[@"家政服务",@"maifang"],@[@"打折活动",@"tuangou"],@[@"擅长技能",@"qita"]];
+     self.dataArray = @[@[@"房屋出租",@"zufang"],@[@"房屋出售",@"maifang"],@[@"汽车出租",@"zuche"],@[@"拼车信息",@"pinche"],@[@"本地服务",@"qita"],@[@"二手信息",@"ershou"],@[@"家政服务",@"maifang"],@[@"打折活动",@"tuangou"],@[@"擅长技能",@"qita"]];
 }
 
 - (UICollectionView *)collectionView {
@@ -87,11 +92,43 @@ static NSString * headIdentifier = @"cxHeadID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        NSLog(@"点我干啥");
         SendHouseController *house = [[SendHouseController alloc]init];
         house.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:house animated:YES];
+    } else if (indexPath.row == 1) {
+        SellHousesController *houses = [[SellHousesController alloc]init];
+        houses.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:houses animated:YES];
+    } else if (indexPath.row == 2) {
+        RentCarController *rentCar = [[RentCarController alloc]init];
+        rentCar.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:rentCar animated:YES];
+    } else if (indexPath.row == 3) {
+        CarSharingController *shareCar = [[CarSharingController alloc]init];
+        shareCar.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:shareCar animated:YES];
+    } else if (indexPath.row == 4) {
+        LocalServiceController *local = [[LocalServiceController alloc]init];
+        local.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:local animated:YES];
+    } else if (indexPath.row == 5) {
+        UserMessageController *used = [[UserMessageController alloc]init];
+        used.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:used animated:YES];
+    } else if (indexPath.row == 6) {
+        UserMessageController *used = [[UserMessageController alloc]init];
+        used.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:used animated:YES];
+    } else if (indexPath.row == 7) {
+        DaZheController *dz = [[DaZheController alloc]init];
+        dz.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:dz animated:YES];
+    } else if (indexPath.row == 8) {
+        UserMessageController *used = [[UserMessageController alloc]init];
+        used.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:used animated:YES];
     }
+    
 }
 
 

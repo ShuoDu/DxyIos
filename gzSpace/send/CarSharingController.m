@@ -1,30 +1,31 @@
 //
-//  SendHouseController.m
+//  CarSharingController.m
 //  gzSpace
 //
-//  Created by 智享单车 on 2018/3/6.
+//  Created by 智享单车 on 2018/3/7.
 //  Copyright © 2018年 智享单车. All rights reserved.
 //
 
-#import "SendHouseController.h"
+#import "CarSharingController.h"
 #import "UIColor+YYAdd.h"
 #import "SwitchHouseType.h"
 static NSString *rovedCellID = @"YDBAppRovedCell";
-@interface SendHouseController ()<UITableViewDelegate,UITableViewDataSource>
+@interface CarSharingController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myTab;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) SwitchHouseType *switchView;
+
 @end
 
-@implementation SendHouseController
+@implementation CarSharingController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"房屋出租";
+    self.navigationItem.title = @"发布拼车";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(sendMessage)];
     self.navigationItem.rightBarButtonItem = rightItem;
-//     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},nil];
-     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请选择厅室"},@{@"楼层":@"请选择楼层"},@{@"电梯":@"请选择"},@{@"月租金":@"请选择月租金及支付方式"},@{@"联系人":@"请输入联系方式"},nil];
+    //     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},nil];
+    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请选择厅室"},@{@"楼层":@"请选择楼层"},@{@"电梯":@"请选择"},@{@"月租金":@"请选择月租金及支付方式"},@{@"联系人":@"请输入联系方式"},nil];
     [self addTabView];
 }
 
@@ -110,6 +111,5 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 - (void)viewTouch {
     [self.switchView removeFromSuperview];
 }
-
 
 @end

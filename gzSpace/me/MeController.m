@@ -14,7 +14,6 @@
 #import "GoodsManageController.h"
 #import "GzManageController.h"
 #import "KuaiDiController.h"
-#import "OrderController.h"
 #import "UIView+YYAdd.h"
 #import "UIButton+JKImagePosition.h"
 @interface MeController ()<UITableViewDelegate,UITableViewDataSource>
@@ -156,9 +155,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row ==1) {
-        OrderController *order =[[OrderController alloc]init];
-        order.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:order animated:YES];
+      
     }
 }
 
