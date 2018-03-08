@@ -23,11 +23,11 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     self.navigationItem.title = @"房屋出售";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(sendMessage)];
     self.navigationItem.rightBarButtonItem = rightItem;
-    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请选择厅室"},@{@"楼层":@"请选择楼层"},@{@"电梯":@"请选择"},@{@"产权类型/年限":@"请选择"},@{@"售价":@"输入价格"},@{@"联系人/性别":@"请输入联系人/性别"},@{@"电话":@"请输入联系人电话"},nil];
+    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请输入厅室(如:2室1厅1卫)"},@{@"楼层":@"请输入楼层(如:3/9)"},@{@"电梯":@"有/无"},@{@"产权类型/年限":@"请输入产权年限(如:10/70)"},@{@"售价":@"输入价格"},@{@"联系人":@"请输入联系人"},@{@"联系方式":@"请输入手机号"},nil];
     [self addTabView];
 }
 
--(void)sendMessage {
+- (void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
 }
@@ -71,13 +71,21 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     NSDictionary *dic = self.dataArray[indexPath.row];
     NSString * key = dic.allKeys[0];
     cell.textLabel.text = key;
+    if (indexPath.row == 0) {
+        UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+        labContent.textAlignment = NSTextAlignmentRight;
+        labContent.textColor =[UIColor lightGrayColor];
+        labContent.font = [UIFont systemFontOfSize:14];
+        labContent.text = dic[key];
+        [cell addSubview:labContent];
+    } else {
+        UITextField *contentTf = [[UITextField alloc]initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+        contentTf.placeholder = dic[key];
+        contentTf.textAlignment = NSTextAlignmentRight;
+        contentTf.font = [UIFont systemFontOfSize:14];
+        [cell addSubview:contentTf];
+    }
     
-    UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
-    labContent.textAlignment = NSTextAlignmentRight;
-    labContent.textColor =[UIColor colorWithHexString:@"333333"];
-    labContent.font = [UIFont systemFontOfSize:14];
-    labContent.text = dic[key];
-    [cell addSubview:labContent];
     return cell;
 }
 
@@ -95,7 +103,7 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
                 [self.myTab reloadData];
             } else if (tag == 003) {
                 [self.dataArray removeObjectAtIndex:0];
-                 self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"发布者身份":@"公司"},@{@"公司名称":@"请输入公司名称"},@{@"楼盘名称":@"请输入楼盘名称"},@{@"位置":@"请输入楼盘位置"},@{@"开盘日":@"请输入开盘日期"},@{@"产权类型/年限":@"请选择"},@{@"售价":@"输入价格"},@{@"联系人/性别":@"请输入联系人/性别"},@{@"电话":@"请输入联系人电话"},nil];
+                self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"发布者身份":@"公司"},@{@"公司名称":@"请输入公司名称"},@{@"楼盘名称":@"请输入楼盘名称"},@{@"位置":@"请输入楼盘位置"},@{@"开盘日":@"请输入开盘日期"},@{@"产权类型/年限":@"请输入产权年限(如:10/70)"},@{@"售价":@"输入价格(如:4000/m2)"},@{@"联系人":@"请输入联系人"},@{@"电话":@"请输入手机号"},nil];
                 [self.myTab reloadData];
             }
         }];

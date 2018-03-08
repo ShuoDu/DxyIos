@@ -91,14 +91,6 @@
     //添加长按的手势
     UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
     [_mainView addGestureRecognizer:longPress];
-
-    UIButton *exit = [[UIButton alloc]init];
-    [self.view addSubview:exit];
-    [exit setTitle:@"取消" forState:UIControlStateNormal];
-    [exit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    exit.frame = CGRectMake(0, self.view.bottom-40, WIDTH, 45);
-    exit.backgroundColor = MainNavColor;
-    [exit addTarget:self action:@selector(returnLast) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)longPress:(UIGestureRecognizer *)longPress {
@@ -213,7 +205,7 @@
             lab2.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.00];
             
             _editBtn = [[UIButton alloc]init];
-            _editBtn.frame = CGRectMake(collectionView.frame.size.width-60, 13, 44, 28);
+            _editBtn.frame = CGRectMake(collectionView.frame.size.width-140, 13, 60, 28);
             [header addSubview:_editBtn];
             [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];
             _editBtn.titleLabel.font = [UIFont systemFontOfSize:13];
@@ -223,8 +215,20 @@
             _editBtn.layer.cornerRadius = 14;
             _editBtn.layer.borderWidth = 0.8;
             [_editBtn addTarget:self action:@selector(editTags:) forControlEvents:UIControlEventTouchUpInside];
+            
+            _editBtn = [[UIButton alloc]init];
+            _editBtn.frame = CGRectMake(collectionView.frame.size.width-70, 13, 60, 28);
+            [header addSubview:_editBtn];
+            [_editBtn setTitle:@"取消" forState:UIControlStateNormal];
+            _editBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+            [_editBtn setTitleColor:MainNavColor forState:UIControlStateNormal];
+            _editBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+            _editBtn.layer.masksToBounds = YES;
+            _editBtn.layer.cornerRadius = 14;
+            _editBtn.layer.borderWidth = 0.8;
+            [_editBtn addTarget:self action:@selector(returnLast) forControlEvents:UIControlEventTouchUpInside];
         }
-    }else if (indexPath.section == 1){
+    } else if (indexPath.section == 1){
         if (kind == UICollectionElementKindSectionHeader){
             NSString *CellIdentifier = @"head2";
             header=[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:CellIdentifier forIndexPath:indexPath];

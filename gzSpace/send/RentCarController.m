@@ -23,12 +23,12 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     self.navigationItem.title  = @"汽车出租";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(sendMessage)];
     self.navigationItem.rightBarButtonItem = rightItem;
-    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"身份":@"请选择身份"},@{@"汽车类别":@"请选择类别"},@{@"区域":@"请输入服务区域"},@{@"联系人":@"至少两字"},@{@"电话":@"请输入联系人电话"},nil];
+    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"身份":@"请选择身份"},@{@"汽车类别":@"请输入类别(如:家用轿车)"},@{@"汽车品牌/型号":@"请输入品牌(如:大众/帕萨特)"},@{@"区域":@"请输入服务区域(如:南阳市内)"},@{@"价格":@"请输入价格(如:200/天)"},@{@"联系人":@"至少两字"},@{@"电话":@"请输入联系人手机号"},nil];
     [self addTabView];
 }
 
 
--(void)sendMessage {
+- (void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
 }
@@ -72,19 +72,25 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     NSDictionary *dic = self.dataArray[indexPath.row];
     NSString * key = dic.allKeys[0];
     cell.textLabel.text = key;
-    
-    UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
-    labContent.textAlignment = NSTextAlignmentRight;
-    labContent.textColor =[UIColor colorWithHexString:@"333333"];
-    labContent.font = [UIFont systemFontOfSize:14];
-    labContent.text = dic[key];
-    [cell addSubview:labContent];
+    if (indexPath.row == 0) {
+        UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+        labContent.textAlignment = NSTextAlignmentRight;
+        labContent.textColor =[UIColor lightGrayColor];
+        labContent.font = [UIFont systemFontOfSize:14];
+        labContent.text = dic[key];
+        [cell addSubview:labContent];
+    } else {
+        UITextField *contentTf = [[UITextField alloc]initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+        contentTf.placeholder = dic[key];
+        contentTf.textAlignment = NSTextAlignmentRight;
+        contentTf.font = [UIFont systemFontOfSize:14];
+        [cell addSubview:contentTf];
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        NSLog(@"点我干啥");
         self.switchView = [SwitchHouseType insWithCallback:^(NSInteger tag){
             if (tag == 001) {
                 [self.dataArray removeObjectAtIndex:0];

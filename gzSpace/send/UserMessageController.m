@@ -10,10 +10,8 @@
 #import "UIColor+YYAdd.h"
 #import "SwitchHouseType.h"
 static NSString *rovedCellID = @"YDBAppRovedCell";
-@interface UserMessageController ()
-<UITableViewDelegate,UITableViewDataSource>
+@interface UserMessageController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myTab;
-@property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) SwitchHouseType *switchView;
 @end
 
@@ -21,15 +19,15 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"二手信息";
+    self.navigationItem.title = self.titles;
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(sendMessage)];
     self.navigationItem.rightBarButtonItem = rightItem;
     //     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},nil];
-    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请选择厅室"},@{@"楼层":@"请选择楼层"},@{@"电梯":@"请选择"},@{@"月租金":@"请选择月租金及支付方式"},@{@"联系人":@"请输入联系方式"},nil];
+//    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"物品名称":@"请输入物品名称(如:iphonex)"},@{@"新旧程度":@"请输入新旧程度(如:9成新)"},@{@"生产日期":@"请数日产品生产日期"},@{@"价格":@"请输入价格"},@{@"联系人":@"请输入联系人"},@{@"手机":@"请输入手机号"},nil];
     [self addTabView];
 }
 
--(void)sendMessage {
+- (void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
 }
@@ -76,7 +74,7 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     
     UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
     labContent.textAlignment = NSTextAlignmentRight;
-    labContent.textColor =[UIColor colorWithHexString:@"333333"];
+    labContent.textColor =[UIColor lightGrayColor];
     labContent.font = [UIFont systemFontOfSize:14];
     labContent.text = dic[key];
     [cell addSubview:labContent];
@@ -84,28 +82,7 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        NSLog(@"点我干啥");
-        self.switchView = [SwitchHouseType insWithCallback:^(NSInteger tag){
-            if (tag == 001) {
-                [self.dataArray removeObjectAtIndex:0];
-                [self.dataArray insertObject:@{@"出租类型":@"整租"} atIndex:0];
-                [self.myTab reloadData];
-            } else if (tag == 002) {
-                [self.dataArray removeObjectAtIndex:0];
-                [self.dataArray insertObject:@{@"出租类型":@"合租"} atIndex:0];
-                [self.myTab reloadData];
-            } else if (tag == 003) {
-                [self.dataArray removeObjectAtIndex:0];
-                [self.dataArray insertObject:@{@"出租类型":@"短租/小时"} atIndex:0];
-                [self.myTab reloadData];
-            }
-        }];
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTouch)];
-        [self.switchView addGestureRecognizer:tapGesture];
-        self.switchView.frame = [UIScreen mainScreen].bounds;
-        [self.view addSubview:self.switchView];
-    }
+    
 }
 
 - (void)viewTouch {

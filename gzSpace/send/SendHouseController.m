@@ -24,11 +24,11 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(sendMessage)];
     self.navigationItem.rightBarButtonItem = rightItem;
 //     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},nil];
-     self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请选择厅室"},@{@"楼层":@"请选择楼层"},@{@"电梯":@"请选择"},@{@"月租金":@"请选择月租金及支付方式"},@{@"联系人":@"请输入联系方式"},nil];
+    self.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"出租类型":@"请选择出租类型"},@{@"身份":@"请选择身份"},@{@"房屋地址":@"请输入房屋具体地址"},@{@"面积":@"请输入房屋具体面积/平米"},@{@"厅室":@"请输入厅室(如:2室1厅1卫)"},@{@"楼层":@"请输入楼层(如:3/9)"},@{@"电梯":@"有/无"},@{@"月租金":@"如:2000/押一付三"},@{@"联系人":@"请输入昵称"},@{@"联系人电话":@"请输入联系人电话"},nil];
     [self addTabView];
 }
 
--(void)sendMessage {
+- (void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
 }
@@ -72,13 +72,20 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     NSDictionary *dic = self.dataArray[indexPath.row];
     NSString * key = dic.allKeys[0];
     cell.textLabel.text = key;
-    
-    UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
-    labContent.textAlignment = NSTextAlignmentRight;
-    labContent.textColor =[UIColor colorWithHexString:@"333333"];
-    labContent.font = [UIFont systemFontOfSize:14];
-    labContent.text = dic[key];
-    [cell addSubview:labContent];
+    if (indexPath.row == 0 || indexPath.row == 1) {
+            UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+            labContent.textAlignment = NSTextAlignmentRight;
+            labContent.textColor =[UIColor lightGrayColor];
+            labContent.font = [UIFont systemFontOfSize:14];
+            labContent.text = dic[key];
+            [cell addSubview:labContent];
+    } else {
+            UITextField *contentTf = [[UITextField alloc]initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+            contentTf.placeholder = dic[key];
+            contentTf.textAlignment = NSTextAlignmentRight;
+            contentTf.font = [UIFont systemFontOfSize:14];
+            [cell addSubview:contentTf];
+    }
     return cell;
 }
 
@@ -104,10 +111,36 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
         [self.switchView addGestureRecognizer:tapGesture];
         self.switchView.frame = [UIScreen mainScreen].bounds;
         [self.view addSubview:self.switchView];
+    }  if (indexPath.row == 1) {
+        NSLog(@"点我干啥");
+       self.switchView = [SwitchHouseType insWithCallback:^(NSInteger tag){
+            if (tag == 001) {
+                [self.dataArray removeObjectAtIndex:1];
+                [self.dataArray insertObject:@{@"身份类型":@"个人"} atIndex:1];
+                [self.myTab reloadData];
+            } else if (tag == 002) {
+                [self.dataArray removeObjectAtIndex:1];
+                [self.dataArray insertObject:@{@"身份类型":@"中介"} atIndex:1];
+                [self.myTab reloadData];
+            } else if (tag == 003) {
+                [self.dataArray removeObjectAtIndex:1];
+                [self.dataArray insertObject:@{@"身份类型":@"公司"} atIndex:1];
+                [self.myTab reloadData];
+            }
+        }];
+        self.switchView.title.text = @"身份选择";
+        [self.switchView.one setTitle:@"个人" forState:UIControlStateNormal];
+        [self.switchView.two setTitle:@"中介" forState:UIControlStateNormal];
+        [self.switchView.three setTitle:@"公司" forState:UIControlStateNormal];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTouch)];
+        [self.switchView addGestureRecognizer:tapGesture];
+        self.switchView.frame = [UIScreen mainScreen].bounds;
+        [self.view addSubview:self.switchView];
     }
 }
 
 - (void)viewTouch {
+    
     [self.switchView removeFromSuperview];
 }
 

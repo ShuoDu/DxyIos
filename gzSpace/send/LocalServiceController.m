@@ -14,7 +14,6 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 @property (nonatomic,strong) UITableView *myTab;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) SwitchHouseType *switchView;
-
 @end
 
 @implementation LocalServiceController

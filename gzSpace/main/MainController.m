@@ -251,6 +251,7 @@ static NSString *oneMessage = @"MessageOneCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainMessageModel *model = self.dataArray[indexPath.row];
+    NSLog(@"图片地址%@",model.message_img);
     UITableViewCell  * cell = [tableView dequeueReusableCellWithIdentifier:oneCellID];
     MessageTwoCell *cellOne = [tableView dequeueReusableCellWithIdentifier:twoCellID];
     [cellOne loadData:model];

@@ -113,25 +113,29 @@ static NSString * headIdentifier = @"cxHeadID";
         [self.navigationController pushViewController:local animated:YES];
     } else if (indexPath.row == 5) {
         UserMessageController *used = [[UserMessageController alloc]init];
+        used.titles = @"二手信息";
+        used.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"物品名称":@"请输入物品名称(如:iphonex)"},@{@"新旧程度":@"请输入新旧程度(如:9成新)"},@{@"生产日期":@"请输入产品生产日期"},@{@"价格":@"请输入价格"},@{@"联系人":@"请输入联系人"},@{@"手机":@"请输入手机号"},nil];
         used.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:used animated:YES];
     } else if (indexPath.row == 6) {
         UserMessageController *used = [[UserMessageController alloc]init];
+        used.titles = @"维修服务";
+        used.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"公司名称":@"请输入公司名称"},@{@"维修范围":@"请输入维修范围(如:家电,手机)"},@{@"地址":@"请输入公司地址"},@{@"服务范围":@"请输入服务范围(如:新野县)"},@{@"联系人":@"请输入联系人"},@{@"手机":@"请输入手机号"},nil];
         used.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:used animated:YES];
     } else if (indexPath.row == 7) {
-        DaZheController *dz = [[DaZheController alloc]init];
-        dz.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:dz animated:YES];
-    } else if (indexPath.row == 8) {
         UserMessageController *used = [[UserMessageController alloc]init];
+        used.titles = @"打折活动";
+        used.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"商户名称":@"请输入名称"},@{@"活动标题":@"如:万德隆洗衣机打折了"},@{@"地址":@"请输入公司地址"},@{@"服务范围":@"如:新野县"},@{@"联系人":@"请输入联系人"},@{@"手机":@"请输入手机号"},nil];
         used.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:used animated:YES];
-    }
+    } else if (indexPath.row == 8) {
+        UserMessageController *used = [[UserMessageController alloc]init];
+        used.titles = @"擅长技能";
+        used.dataArray = [[NSMutableArray alloc]initWithObjects:@{@"擅长技能":@"请输入技能(如:写程序)"},@{@"价格":@"如:100/小时"},@{@"服务范围":@"如:新野县"},@{@"联系人":@"请输入联系人"},@{@"手机":@"请输入手机号"},nil];
+        used.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:used animated:YES];
     
 }
-
-
-
-
+}
 @end

@@ -9,5 +9,6 @@
 #import "BaseController.h"
 
 @interface UserMessageController : BaseController
-
+@property (nonatomic,strong) NSString * titles;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @end

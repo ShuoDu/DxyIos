@@ -20,7 +20,7 @@
 #define ViewBackColor [UIColor colorWithRed:235/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]
 #define NewViewBack [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]
 #define Host @"http://192.168.201.162:8080/"
-
+#define ImgHost @"http://192.168.201.162:8080"
 
 //日志控制
 #ifdef DEBUG

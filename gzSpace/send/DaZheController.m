@@ -14,7 +14,6 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 @property (nonatomic,strong) UITableView *myTab;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) SwitchHouseType *switchView;
-
 @end
 
 @implementation DaZheController
@@ -29,7 +28,7 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     [self addTabView];
 }
 
--(void)sendMessage {
+- (void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
 }
