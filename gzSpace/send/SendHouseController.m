@@ -9,11 +9,14 @@
 #import "SendHouseController.h"
 #import "UIColor+YYAdd.h"
 #import "SwitchHouseType.h"
+#import "CYXBaseRequest.h"
 static NSString *rovedCellID = @"YDBAppRovedCell";
 @interface SendHouseController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myTab;
 @property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic,strong) NSMutableArray *upDataArray;
 @property (nonatomic,strong) SwitchHouseType *switchView;
+@property (nonatomic,strong) UITextField *contentTf;
 @end
 
 @implementation SendHouseController
@@ -29,9 +32,38 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
 }
 
 - (void)sendMessage {
-    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
+    self.upDataArray = [[NSMutableArray alloc]init];
+    for (int i =902; i<900+(self.dataArray.count); i++) {
+        UITextField *field = [self.myTab viewWithTag:i];
+        if (field.text == NULL || [field.text isEqualToString:@""]) {
+            NSDictionary *dic = self.dataArray[i-900];
+            NSString *tost = [NSString stringWithFormat:@"%@%@",@"请填写",dic.allKeys[0]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD showErrorWithStatus:tost];
+        } else {
+            [self.upDataArray addObject:field.text];
+        }
+    }
+    if (self.upDataArray.count >3) {
+//            NSDictionary *parm = @{@"type":self.upDataArray[0],@"shenfen":self.upDataArray[1],@"address":self.upDataArray[2],@"area":self.upDataArray[3],@"house_content":self.upDataArray[4],
+//                  @"floor":self.upDataArray[5],@"lift":self.upDataArray[6],@"money":self.upDataArray[7],@"linkman":self.upDataArray[8],@"phone":self.upDataArray[9]
+//                                   };
+                NSDictionary *parm = @{@"type":self.upDataArray[0],@"address":self.upDataArray[2]};
+                NSString *urls = [NSString stringWithFormat:@"%@%@",Host,@"main/add_message/"];
+                [CYXHttpRequest get:urls params:parm success:^(id responseObj) {
+                    NSLog(@"%@",responseObj);
+                    NSDictionary *dff = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableLeaves error:nil];
+                    NSLog(@"返回数据%@",dff);
+        
+                } failure:^(NSError *error) {
+                }];
+                [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+                [SVProgressHUD showSuccessWithStatus:@"发布成功!"];
+                [self.navigationController popViewControllerAnimated:YES];
+    }
 }
+
+
 
 - (void)addTabView {
     self.myTab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) style:UITableViewStylePlain];
@@ -80,11 +112,12 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
             labContent.text = dic[key];
             [cell addSubview:labContent];
     } else {
-            UITextField *contentTf = [[UITextField alloc]initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
-            contentTf.placeholder = dic[key];
-            contentTf.textAlignment = NSTextAlignmentRight;
-            contentTf.font = [UIFont systemFontOfSize:14];
-            [cell addSubview:contentTf];
+            self.contentTf = [[UITextField alloc]initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+            self.contentTf.placeholder = dic[key];
+            self.contentTf.tag = 900+indexPath.row;
+            self.contentTf.textAlignment = NSTextAlignmentRight;
+            self.contentTf.font = [UIFont systemFontOfSize:14];
+            [cell addSubview:self.contentTf];
     }
     return cell;
 }

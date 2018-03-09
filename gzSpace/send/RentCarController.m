@@ -27,7 +27,6 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     [self addTabView];
 }
 
-
 - (void)sendMessage {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:@"发布成功!"];

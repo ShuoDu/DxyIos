@@ -44,11 +44,11 @@ static NSString * headIdentifier = @"cxHeadID";
         //自动网格布局
         UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
         //设置单元格大小
-        flowLayout.itemSize = CGSizeMake((WIDTH-50)/3, 100);
+        flowLayout.itemSize = CGSizeMake((WIDTH-50)/3, 120);
         //最小行间距(默认为10)
-        flowLayout.minimumLineSpacing = 10;
+        flowLayout.minimumLineSpacing = 15;
         //最小item间距（默认为10）
-        flowLayout.minimumInteritemSpacing = 10;
+        flowLayout.minimumInteritemSpacing = 15;
         //设置senction的内边距
         flowLayout.sectionInset = UIEdgeInsetsMake(kMagin, kMagin, kMagin, kMagin);
         //网格布局
@@ -77,16 +77,13 @@ static NSString * headIdentifier = @"cxHeadID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //根据identifier从缓冲池里去出cell
     ToolsCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"storeCell" forIndexPath:indexPath];
-//    cell.layer.masksToBounds = YES;
+    cell.layer.masksToBounds = YES;
     cell.layer.cornerRadius = 18;
     NSArray * dic = self.dataArray[indexPath.row];
     cell.title.text = dic[0];
     cell.backgroundColor = [UIColor whiteColor];
     cell.img.image = [UIImage imageNamed:dic[1]];
-    //添加阴影
-    cell.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    cell.layer.shadowOffset = CGSizeMake(0, -5);
-    cell.layer.shadowOpacity = 0.3;
+ 
     return cell;
 }
 

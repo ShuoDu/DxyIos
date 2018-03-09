@@ -72,12 +72,11 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     NSString * key = dic.allKeys[0];
     cell.textLabel.text = key;
     
-    UILabel * labContent = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
-    labContent.textAlignment = NSTextAlignmentRight;
-    labContent.textColor =[UIColor lightGrayColor];
-    labContent.font = [UIFont systemFontOfSize:14];
-    labContent.text = dic[key];
-    [cell addSubview:labContent];
+    UITextField *contentTf = [[UITextField alloc]initWithFrame:CGRectMake(WIDTH-220, 0, 200, 60)];
+    contentTf.placeholder = dic[key];
+    contentTf.textAlignment = NSTextAlignmentRight;
+    contentTf.font = [UIFont systemFontOfSize:14];
+    [cell addSubview:contentTf];
     return cell;
 }
 
