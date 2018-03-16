@@ -60,11 +60,12 @@ static NSString *detailCellID = @"YDBAboutUsCell";
     [pay setTitle:@"立即支付" forState:UIControlStateNormal];
     [bottomView addSubview:pay];
 }
+
 - (void)payAction {
     
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
 

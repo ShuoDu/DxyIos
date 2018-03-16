@@ -63,8 +63,6 @@ static NSString *rovedCellID = @"YDBAppRovedCell";
     }
 }
 
-
-
 - (void)addTabView {
     self.myTab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) style:UITableViewStylePlain];
     self.myTab.dataSource = self;

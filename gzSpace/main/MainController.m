@@ -34,24 +34,31 @@ static NSString *oneMessage = @"MessageOneCell";
 @property (nonatomic, strong)MainHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *btnArray;
 @property (nonatomic, strong)NSMutableArray *dataArray;
+@property(nonatomic,getter=isNetworkActivityIndicatorVisible) BOOL networkActivityIndicatorVisible;
 @end
 
 @implementation MainController
 
 - (void)loadView {
     [super loadView];
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    UIApplication *app = [UIApplication sharedApplication];
+//    app.applicationIconBadgeNumber = 10;
+//    // 创建通知对象
+//    UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+//    // 注册用户通知
+//    app.networkActivityIndicatorVisible= YES;
+//   [app registerUserNotificationSettings:setting];
     self.navigationItem.title = @"大新野";
     self.tabBarItem.title = @"首页";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"服务标签" style:UIBarButtonItemStyleDone target:self action:@selector(addTagView)];
     self.navigationItem.rightBarButtonItem = rightItem;
     [self addTableView];
     [self addTagView];
-    
+    [self loadData:@"头条"];
 }
 
 - (void) addTagView {
@@ -76,7 +83,6 @@ static NSString *oneMessage = @"MessageOneCell";
         }
         [[NSUserDefaults standardUserDefaults] setObject:_str forKey:@"selectTag"];
     };
-    
     //单选tag
     controller.selectedTag = ^(Channel *channel) {
         [_str appendString:channel.title];
@@ -146,7 +152,7 @@ static NSString *oneMessage = @"MessageOneCell";
     self.headView.frame = CGRectMake(0, 0, WIDTH, 365);
     myTableView.tableHeaderView = self.headView;
     [self.view addSubview:myTableView];
-    [self loadData:@"头条"];
+  
 }
 
 - (void)loadData:(NSString *)type {

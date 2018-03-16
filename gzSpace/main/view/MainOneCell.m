@@ -30,7 +30,9 @@
     self.title.text = data.title;
     self.adress.text = data.content;
     self.time.text = data.address;
-    [self.img sd_setImageWithURL:[NSURL URLWithString:data.message_img]];
+    NSDictionary * dic = data.img_url;
+    NSString * img_urls = [NSString stringWithFormat:@"%@%@",ImgHost,dic[@"img_url"]];
+    [self.img sd_setImageWithURL:[NSURL URLWithString:img_urls]];
 }
 
 @end
